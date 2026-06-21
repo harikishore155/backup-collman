@@ -1,0 +1,127 @@
+@use "../../main.scss" as *;
+
+.filterable-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+
+    .filter-trigger,
+    .sort-trigger {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 27px;
+        height: 27px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background: transparent;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            border-color: #cbd5e1;
+            background: #ffffff;
+            color: #2563eb;
+        }
+
+        &.active {
+            border-color: #bfdbfe;
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .filter-count {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            display: grid;
+            place-items: center;
+            min-width: 16px;
+            height: 16px;
+            padding: 0 4px;
+            border-radius: 999px;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 9px;
+            line-height: 1;
+        }
+    }
+
+    .sort-trigger.active {
+        border-color: #bfdbfe;
+        background: #eff6ff;
+        color: #2563eb;
+    }
+}
+
+.filter-popover {
+    width: 260px;
+    padding: 14px;
+
+    .filter-popover-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        color: #0f172a;
+        font-size: 13px;
+        font-weight: 600;
+
+        button {
+            display: grid;
+            place-items: center;
+            border: 0;
+            background: transparent;
+            color: #64748b;
+            cursor: pointer;
+        }
+    }
+
+    .filter-option-search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        margin-bottom: 12px;
+        border: 1px solid #dfe5ed;
+        border-radius: 7px;
+        color: #94a3b8;
+
+        input {
+            width: 100%;
+            border: 0;
+            outline: 0;
+            color: #334155;
+            font-size: 13px;
+        }
+    }
+
+    .no-options {
+        text-align: center;
+        font-size: 13px;
+        color: gray;
+        padding: 16px 10px;
+    }
+
+    .filter-actions {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+        padding-top: 12px;
+        margin-top: 12px;
+        border-top: 1px solid #edf1f5;
+    }
+
+    .checkbox-group {
+        @include checkbox-style;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 220px;
+        overflow-y: auto;
+    }
+}

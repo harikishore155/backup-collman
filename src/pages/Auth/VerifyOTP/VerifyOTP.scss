@@ -1,0 +1,54 @@
+@use "../../../main.scss" as *;
+
+.otp-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 10px;
+
+    .title {
+        text-align: center;
+    }
+
+    .subtitle {
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+        color: $secondary-text-color;
+    }
+
+    .mail-link {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: $text-color;
+        font-size: 15px;
+    }
+
+    .auth-link {
+        margin-top: 20px;
+        text-align: center;
+
+        .auth-text {
+            font-size: 14px;
+
+            &.resend-link {
+                margin-left: 5px;
+                color: $primary-color;
+                cursor: pointer;
+                font-weight: 600;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .error-message {
+        display: block;
+        color: $danger-color;
+        font-size: 13px;
+        margin-top: 10px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,40 @@
+@use "../../main.scss" as *;
+
+.certificate-modal-top {
+
+    .certificate-upload-placeholder {
+        overflow: hidden;
+        // width: 120px;
+        // height: 120px;
+        border-radius: 8px;
+
+        .certificate-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .form-group {
+        @include form-group-style;
+        gap: 3px;
+
+        label {
+            @include form-label-style;
+            font-size: 16px;
+            color: $secondary-text-color;
+        }
+    }
+
+    .form-input,
+    .form-text-area,
+    .form-select {
+        @include form-input-style;
+        width: 100%;
+        resize: none;
+    }
+
+
+
+
+}

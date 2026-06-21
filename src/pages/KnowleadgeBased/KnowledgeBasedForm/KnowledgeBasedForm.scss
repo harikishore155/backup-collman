@@ -1,0 +1,302 @@
+@use "../../../main.scss" as *;
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
+.kbf-page {
+  padding: 24px 28px;
+  background-color: $bg-page;
+  min-height: 100vh;
+  font-family: $font-primary;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ─── Header ────────────────────────────────────────────────────────────────────
+.kbf-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kbf-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kbf-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 28px; // align with title visually
+}
+
+.kbf-title {
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: $text-primary;
+  margin: 4px 0 2px;
+  line-height: 1.2;
+  font-family: $font;
+}
+
+.kbf-subtitle {
+  font-size: var(--fs-body);
+  color: $text-secondary;
+  margin: 0;
+  font-variant-ligatures: none;
+}
+
+.kbf-top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ─── Card ──────────────────────────────────────────────────────────────────────
+.kbf-card {
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  background-color: $bg-card;
+  overflow: visible;
+  display: flex; // ← add this
+  flex-direction: column; // ← add this
+}
+
+.kbf-card-head {
+  background-color: #f9fbfd;
+  border-bottom: 1px solid $border-color;
+  border-radius: $radius $radius 0 0;
+  padding: 10px 20px;
+}
+
+.kbf-card-head-title {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: $text-primary;
+  margin: 0;
+  font-variant-ligatures: none;
+}
+
+.kbf-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+// ─── Field ─────────────────────────────────────────────────────────────────────
+.kbf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  // Make Dropdown fill the column
+  .dropdown {
+    display: block;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+.kbf-label {
+  font-size: 12px;
+  color: $text-color;
+  display: block;
+}
+
+.kbf-input {
+  height: 45px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9fafb;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  padding: 0 14px;
+  font-size: var(--fs-input);
+  font-family: $font-primary;
+  color: $text-color;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+// ─── Type chips ────────────────────────────────────────────────────────────────
+.kbf-type-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kbf-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  background-color: $bg-page;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  font-size: var(--fs-body);
+  font-family: $font-primary;
+  color: $text-color;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background-color 0.15s;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+}
+
+.kbf-chip-active {
+  background-color: rgba($primary-color, 0.08);
+  border-color: $primary-color;
+  color: $primary-color;
+  font-weight: 500;
+}
+
+// ─── Upload zone ───────────────────────────────────────────────────────────────
+.kbf-upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px dashed $border-color;
+  border-radius: 14px;
+  padding: 48px 20px;
+  cursor: pointer;
+  background-color: #fbfcfe;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.kbf-upload-zone:hover,
+.kbf-upload-zone-drag {
+  border-color: $primary-color;
+  background-color: #f0f6fc;
+}
+
+.kbf-upload-icon {
+  display: flex;
+  color: $primary-color;
+
+  svg {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+.kbf-upload-text {
+  font-size: var(--fs-body);
+  color: $text-secondary;
+  margin: 0;
+}
+
+.kbf-upload-link {
+  color: $primary-color;
+  font-weight: 500;
+  text-decoration: underline;
+  font-variant-ligatures: none;
+}
+
+// ─── File pill ─────────────────────────────────────────────────────────────────
+.kbf-file-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  width: fit-content;
+  max-width: 320px;
+}
+
+.kbf-file-pill-icon {
+  display: flex;
+  flex-shrink: 0;
+  color: $primary-color;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.kbf-file-pill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kbf-file-pill-name {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: $text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kbf-file-pill-meta {
+  font-size: var(--fs-caption);
+  color: $text-muted;
+}
+
+.kbf-file-pill-remove {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+  flex-shrink: 0;
+  color: $text-muted;
+  transition: color 0.2s;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    color: $danger-color;
+  }
+}
+
+// ─── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .kbf-page {
+    padding: 16px;
+  }
+
+  .kbf-header-right {
+    padding-top: 0;
+  }
+}

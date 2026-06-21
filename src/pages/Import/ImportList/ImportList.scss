@@ -1,0 +1,250 @@
+@use "../../../main.scss" as *;
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
+.import-list {
+  padding: 24px 28px;
+  background-color: $bg-page;
+  min-height: 100vh;
+  font-family: $font-primary;
+
+  // ─── Header ────────────────────────────────────────────────────────────────────
+  .import-header {
+    margin-bottom: 20px;
+
+    .import-title {
+      font-size: var(--fs-h4);
+      font-weight: 500;
+      color: $text-primary;
+      margin: 0 0 4px;
+      line-height: 1.3;
+    }
+
+    .import-subtitle {
+      font-size: var(--fs-body);
+      color: $text-secondary;
+      margin: 0;
+    }
+  }
+
+  // ─── Stepper row ────────────────────────────────────────────────────────────────
+  .import-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .stepper-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .stepper-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .stepper-arrow {
+          font-size: 16px;
+          color: $text-muted;
+          line-height: 1;
+        }
+
+        .step {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .step-num {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1.5px solid $border-color;
+            @include flex-center;
+            font-size: var(--fs-body-sm);
+            font-weight: 600;
+            color: $text-muted;
+            background: #fff;
+            flex-shrink: 0;
+          }
+
+          .step-label {
+            font-size: var(--fs-body);
+            color: $text-secondary;
+            font-weight: 400;
+          }
+
+          &.step-done {
+            .step-num {
+              background-color: rgba($primary-color, 0.12);
+              border-color: $primary-color;
+              color: $primary-color;
+            }
+          }
+
+          &.step-active {
+            .step-num {
+              background-color: $primary-color;
+              border-color: $primary-color;
+              color: #fff;
+            }
+
+            .step-label {
+              color: $text-primary;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+
+    // ─── Stepper meta ──────────────────────────────────────────────────────────────
+    .stepper-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      .row-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 14px;
+        border-radius: 5px;
+        font-size: var(--fs-body-sm);
+        font-weight: 500;
+        background-color: #4ECE6D14;
+        color: #34C759;
+     
+      }
+
+      .column-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 14px;
+        border-radius: 5px;
+        font-size: var(--fs-body-sm);
+        font-weight: 500;
+        background-color: #6155F514;
+        color: #6155F5;
+      
+    }
+
+
+  }
+
+  // ─── Single card ────────────────────────────────────────────────────────────────
+  .import-card {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+
+    // Card head — matches UploadPage .card-head exactly:
+    // background #f9fbfd, border-bottom, padding 10px 20px
+    .import-card-head {
+      background-color: #f9fbfd;
+      border-bottom: 1px solid $border-color;
+      padding: 10px 20px;
+
+      .map-label {
+        font-size: var(--fs-body);
+        font-weight: 600;
+        color: $text-primary;
+        margin: 0;
+        display: block;
+        background-color: #f9fbfd;
+      }
+    }
+
+    // Strip DataTable's own outer wrapper shell so it sits flush inside the card.
+    // .data-table-wrap has: border, border-radius, padding:20px, background:#fff
+    // We remove all of those — the card owns the border/radius, table owns its own borders.
+    .import-table-wrap {
+      &.data-table-wrap {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        background: transparent;
+        overflow: visible;
+      }
+    }
+
+    // ─── Pagination ────────────────────────────────────────────────────────────────
+    .import-pagination {
+      padding: 0 20px 16px;
+
+      .pagination-container {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  // ─── Table cell: name ──────────────────────────────────────────────────────────
+  .name-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    strong {
+      color: $text-color;
+      font-weight: 600;
+    }
+
+    .name-code {
+      font-size: 12px;
+      color: $text-muted;
+    }
+  }
+
+  // ─── Table cell: contact ───────────────────────────────────────────────────────
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-body);
+    color: $text-color;
+
+    svg {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      color: $text-color;
+    }
+
+    &.contact-mail {
+      color: $text-secondary;
+
+      svg {
+        color: $text-secondary;
+      }
+    }
+  }
+
+  // ─── Status badge ──────────────────────────────────────────────────────────────
+  .status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 7px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 500;
+
+    &.completed {
+      background: rgba(52, 211, 153, 0.16);
+      color: #16a34a;
+    }
+
+    &.in-progress {
+      background: rgba(251, 191, 36, 0.16);
+      color: #d97706;
+    }
+
+    &.failed {
+      background: rgba(248, 113, 113, 0.16);
+      color: #dc2626;
+    }
+  }
+}
+}

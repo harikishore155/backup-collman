@@ -1,0 +1,33 @@
+@use "../../main.scss" as *;
+
+.section-tabs-container {
+    .tab-header {
+        width: fit-content;
+        margin-bottom: 10px;
+
+        .multiple-tab {
+            font-family: $font-primary;
+            min-height: 42px;
+            height: 42px;
+            margin-right: 10px;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: none;
+            min-width: fit-content;
+            color: #6e6e6e;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 10px 40px;
+            border: 1px solid #e5e5e5;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            &.Mui-selected {
+                color: #fff !important;
+                background-color: $primary-color !important;
+            }
+        }
+    }
+}

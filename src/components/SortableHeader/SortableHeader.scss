@@ -1,0 +1,26 @@
+@use "../../main.scss" as *;
+
+
+.sortable-header {
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+
+    &.clickable {
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+
+    .sort-icon {
+        font-size: 20px;
+        margin-left: 10px;
+
+        &.active {
+            opacity: 1;
+        }
+
+        &.default {
+            opacity: 0.5;
+        }
+    }
+}

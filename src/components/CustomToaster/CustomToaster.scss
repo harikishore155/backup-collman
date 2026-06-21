@@ -1,0 +1,7 @@
+@use "../../main.scss" as *;
+
+.my-toast {
+  padding: 10px 20px !important;
+  font-weight: 500 !important;
+  max-width: fit-content !important;
+}

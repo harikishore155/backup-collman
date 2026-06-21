@@ -1,0 +1,246 @@
+@use "../../../main.scss" as *;
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
+.uf-page {
+    // padding: 24px 28px;
+    background-color: $bg-page;
+    min-height: 100vh;
+    font-family: $font-primary;
+}
+
+// ─── Header ────────────────────────────────────────────────────────────────────
+.uf-header {
+    margin-bottom: 20px;
+}
+
+.uf-title {
+    font-size: var(--fs-h4);
+    font-weight: 500;
+    color: $text-primary;
+    margin: 4px 0;
+    line-height: 1.2;
+    font-family: $font;
+}
+
+.uf-subtitle {
+    font-size: var(--fs-body);
+    color: $text-secondary;
+    margin: 0;
+}
+
+// ─── Card shell ────────────────────────────────────────────────────────────────
+.uf-card {
+    @include container-border-style;
+    overflow: visible;
+    margin-top: 16px;
+}
+
+// Card header row — #F9FBFD bg, bottom border, rounded top
+.uf-card-head {
+    background-color: $bg-thead;
+    border-bottom: 1px solid $border-color;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+}
+
+.uf-card-title {
+    font-size: var(--fs-body);
+   
+    color: $text-primary;
+    margin: 0;
+}
+
+// ─── Map column table ──────────────────────────────────────────────────────────
+.uf-table-wrap {
+    padding: 16px 20px;
+}
+
+// The "Fields / CSV Column" header is a rounded inner box with #F9FBFD bg
+// sitting inside the card body — matches SVG exactly
+.uf-table-head {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+    background-color: #f9fbfd;
+    border: 1px solid $border-color;
+    border-radius: 8px 8px 0 0;
+    padding: 12px 16px;
+}
+
+.uf-col-label {
+    font-size: var(--fs-body);
+   
+    color: $text-primary;
+}
+
+// Rows inside the table body — no extra border-radius, just bottom borders
+.uf-table-body {
+    border: 1px solid $border-color;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.uf-table-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+    padding: 14px 16px;
+    border-bottom: 1px solid $border-color;
+}
+
+.uf-table-row-last {
+    border-bottom: none;
+}
+
+.uf-col-sno,
+.uf-row-sno {
+    text-align: center;
+}
+
+.uf-row-sno {
+    font-size: var(--fs-body);
+    color: $text-secondary;
+}
+
+.uf-row-field {
+    font-size: var(--fs-body);
+    color: $text-color;
+}
+
+.uf-row-muted {
+    font-size: var(--fs-body);
+    color: $text-muted;
+}
+
+.uf-row-dropdown {
+    min-width: 0;
+
+    .dropdown {
+        display: block;
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+// ─── Properties card body ──────────────────────────────────────────────────────
+.uf-card-body {
+    padding: 20px;
+}
+
+.uf-fields-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    .dropdown {
+        display: block;
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+.uf-field-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.uf-input-label {
+    @include form-label-style;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.uf-input {
+    height: 44px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9fafb;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    padding: 0 14px;
+    font-size: var(--fs-input);
+    font-family: $font-primary;
+    color: $text-color;
+    outline: none;
+
+    &::placeholder {
+        color: $text-muted;
+    }
+
+    &:hover {
+        border-color: $primary-color;
+    }
+
+    &:focus {
+        border-color: $primary-color;
+    }
+}
+
+// ─── Checkbox row ──────────────────────────────────────────────────────────────
+.uf-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding-top: 4px;
+}
+
+.uf-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+
+    input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+.uf-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid $border-color;
+    border-radius: 4px;
+    background: #fff;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s, border-color 0.15s;
+    position: relative;
+}
+
+.uf-checkbox input[type="checkbox"]:checked + .uf-checkbox-box {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.uf-checkbox input[type="checkbox"]:checked + .uf-checkbox-box::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 9px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+}
+
+.uf-checkbox-label {
+    font-size: var(--fs-body);
+    color: $text-primary;
+    line-height: 1.4;
+}
+
+.uf-checkbox-note {
+    color: $text-muted;
+    font-size: var(--fs-body);
+}

@@ -1,0 +1,26 @@
+@use "../../../../main.scss" as *;
+
+.disposition-page-container {
+  .disposition-table-wrap {
+    overflow-x: auto;
+  }
+
+  .disposition-table {
+    min-width: 1250px;
+
+    .disposition-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border-radius: 7px;
+      background: #f5f3ff;
+      color: #7c3aed;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+}
+
+

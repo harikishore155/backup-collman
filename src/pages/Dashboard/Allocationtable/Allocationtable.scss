@@ -1,0 +1,96 @@
+@use "../../../styles/variables" as *;
+
+// ─── Allocation Card ──────────────────────────────────────────────────────────
+.allocation-card-container {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 20px 20px 16px;
+  margin-bottom: $gap;
+  overflow: hidden;
+
+  .allocation-title {
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-primary;
+  }
+
+  .allocation-scroll {
+    overflow-x: auto;
+  }
+
+  // ─── Shared Inner Table Box ──────────────────────────────────────────────────
+  .inner-table-box {
+    overflow: hidden;
+    border: 1px solid $border;
+    border-radius: 6px;
+    margin-top: 15px;
+  }
+
+  // ─── Allocation Table ────────────────────────────────────────────────────────
+  .allocation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+
+    thead {
+      tr {
+        background: $bg-thead;
+      }
+    }
+
+    th,
+    td {
+      padding: 10px 14px;
+      white-space: nowrap;
+
+      &:first-child {
+        text-align: left;
+      }
+
+      &:not(:first-child) {
+        text-align: right;
+        border-left: 1px solid $border;
+      }
+    }
+
+    th {
+      // font-size: 12px;
+      font-weight: 500;
+      color: $text-secondary;
+    }
+
+    tbody {
+      tr {
+        border-top: 1px solid $border;
+        transition: background 0.12s ease-in-out;
+
+        &:hover {
+          background: $bg-page;
+        }
+      }
+    }
+
+    .total-row {
+      background: $bg-total;
+
+      td {
+        font-weight: 500;
+      }
+    }
+
+    .clickable-row { cursor: pointer; }
+  }
+
+  .alloc-link {
+    font-size: 13px;
+    color: $primary-color;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

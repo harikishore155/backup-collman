@@ -1,0 +1,315 @@
+@use "../../main.scss" as *;
+
+.data-table-shell {
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        z-index: 4;
+        width: 22px;
+        opacity: 0;
+        pointer-events: none;
+        content: "";
+        transition: opacity 0.2s ease;
+    }
+
+    &::before {
+        left: 1px;
+        border-radius: 8px 0 0 8px;
+        background: linear-gradient(90deg, rgba(15, 23, 42, 0.14), transparent);
+    }
+
+    &::after {
+        right: 1px;
+        border-radius: 0 8px 8px 0;
+        background: linear-gradient(270deg, rgba(15, 23, 42, 0.14), transparent);
+    }
+
+    &.has-left-overflow::before,
+    &.has-right-overflow::after {
+        opacity: 1;
+    }
+
+    &.has-scroll-toolbar {
+        &::before,
+        &::after {
+            top: 48px;
+        }
+    }
+}
+
+.data-table-wrap {
+    border: 1px solid #dfe5ed;
+    border-radius: 8px;
+    overflow: auto;
+    scrollbar-color: #94a3b8 #eef2f6;
+    scrollbar-width: thin;
+    background-color: #ffffff;
+    padding: 20px;
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #dfe5ed;
+
+        thead {
+            th {
+                @include table-heading-style;
+                position: sticky;
+                top: 0;
+                z-index: 2;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    @include table-data-style;
+                }
+
+                &:last-child {
+                    td {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.table-scroll-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    min-height: 40px;
+    margin-bottom: 8px;
+
+    > span {
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 600;
+    }
+}
+
+.table-scroll-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid #dbe3ec;
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+
+    button {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border: 0;
+        border-radius: 50%;
+        background: #eff6ff;
+        color: #2563eb;
+        cursor: pointer;
+
+        &:hover:not(:disabled) {
+            background: #dbeafe;
+        }
+
+        &:disabled {
+            background: #f8fafc;
+            color: #cbd5e1;
+            cursor: default;
+        }
+    }
+}
+
+.table-field-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.1;
+    white-space: nowrap;
+
+    &.campaign,
+    &.target-id,
+    &.emp-code,
+    &.mis-code {
+        background: #eff6ff;
+        color: #2563eb;
+    }
+
+    &.date,
+    &.account {
+        background: #f8fafc;
+        color: #64748b;
+    }
+
+    &.closing,
+    &.month {
+        background: #fef3c7;
+        color: #b45309;
+    }
+
+    &.allocation-type,
+    &.role,
+    &.type-id,
+    &.mis-id {
+        background: #f5f3ff;
+        color: #7c3aed;
+    }
+
+    &.role-name {
+        background: #e0e7ff;
+        color: #4338ca;
+    }
+
+    &.role-description {
+        background: #f8fafc;
+        color: #475569;
+        white-space: normal;
+        max-width: 350px;
+        text-align: left;
+        line-height: 1.4;
+        display: inline-block;
+        padding: 6px 12px;
+    }
+
+    &.person,
+    &.location {
+        background: #ecfeff;
+        color: #0891b2;
+    }
+
+    &.manager,
+    &.bank,
+    &.client,
+    &.goal {
+        background: #dbeafe;
+        color: #1d4ed8;
+    }
+
+    &.tl,
+    &.achieved,
+    &.paid,
+    &.net-pay {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+    &.state {
+        background: #f0fdf4;
+        color: #16a34a;
+    }
+
+    &.branch {
+        background: #ffedd5;
+        color: #c2410c;
+    }
+
+    &.product {
+        background: #fce7f3;
+        color: #be185d;
+    }
+
+    &.product-name {
+        background: #fdf2f8;
+        color: #db2777;
+    }
+
+    &.type-name {
+        background: #e0f2fe;
+        color: #0369a1;
+
+        &.bkt {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        &.rec {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+    }
+
+    &.product-description {
+        background: #f8fafc;
+        color: #475569;
+        white-space: normal;
+        max-width: 350px;
+        text-align: left;
+        line-height: 1.4;
+        display: inline-block;
+        padding: 6px 12px;
+    }
+
+    &.type-description {
+        background: #f8fafc;
+        color: #475569;
+        white-space: normal;
+        max-width: 350px;
+        text-align: left;
+        line-height: 1.4;
+        display: inline-block;
+        padding: 6px 12px;
+    }
+
+    &.days {
+        background: #e2e8f0;
+        color: #334155;
+    }
+
+    &.target,
+    &.percent {
+        background: #fef9c3;
+        color: #a16207;
+    }
+
+    &.resolution {
+        background: #ccfbf1;
+        color: #0f766e;
+    }
+
+    &.nrrb,
+    &.rbnr {
+        background: #fae8ff;
+        color: #a21caf;
+    }
+
+    &.ce,
+    &.count {
+        background: #e0f2fe;
+        color: #0369a1;
+    }
+
+    &.money,
+    &.collection {
+        background: #ecfdf5;
+        color: #047857;
+    }
+
+    &.success {
+        background: #dcfce7;
+        color: #15803d;
+    }
+
+    &.danger,
+    &.error {
+        background: #fee2e2;
+        color: #ef4444;
+    }
+}
+
+
+

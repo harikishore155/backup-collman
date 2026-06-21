@@ -1,0 +1,24 @@
+@use "../../main.scss" as *;
+
+.view-icon {
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #ececec;
+  color: #3e3e3e;
+  display: inline-block;
+  padding: 7px 10px;
+
+  svg {
+    font-size: 15px;
+  }
+
+  &:hover {
+    background-color: $primary-color;
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover svg {
+    transform: scale(1.1);
+  }
+}

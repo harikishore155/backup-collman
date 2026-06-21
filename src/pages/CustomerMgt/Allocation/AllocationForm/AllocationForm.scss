@@ -1,0 +1,249 @@
+@use "../../../../main.scss" as *;
+
+$_input-h: 36px;
+$_gap: 16px;
+$_panel-radius: 8px;
+$_suffix-w: 44px;
+
+.allocation-form-container {
+  .af-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .af-page-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h4 {
+      margin: 0;
+      font-weight: 500;
+      font-size: var(--fs-h5);
+      color: $text-color;
+    }
+  }
+
+  .af-page-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .af-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 12px;
+    align-items: start;
+
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .af-card {
+    border: 1px solid $border-color;
+    border-radius: $_panel-radius;
+    background-color: $bg-card;
+    box-shadow: $shadow;
+    overflow: hidden;
+
+    &--right {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+  }
+
+  .af-card-header {
+    padding: 10px 20px 10px 16px;
+    background-color: $bg-thead;
+    border-bottom: 1px solid $border-color;
+    font-size: var(--fs-body);
+    font-weight: 500;
+    color: $text-color;
+  }
+
+  .af-card-body {
+    padding: 16px 20px 20px 16px;
+
+    &--right {
+      padding: 16px 20px 20px 20px;
+    }
+  }
+
+  .af-row {
+    display: grid;
+    gap: $_gap;
+    align-items: start;
+    margin-bottom: $_gap;
+
+    &--1 {
+      grid-template-columns: 1fr;
+    }
+    &--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &--4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  .af-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .af-label {
+    @include form-label-style;
+    display: block;
+    margin-bottom: 6px;
+    font-size: var(--fs-body);
+    color: $secondary-text-color;
+    line-height: 1.3;
+  }
+
+  .af-required {
+    color: $danger-color;
+  }
+
+  .af-control {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+
+    > * {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    > input[type="checkbox"] {
+      flex: 0 0 auto;
+      width: 16px !important;
+    }
+
+    &--suffix {
+      .af-input {
+        flex: 1 1 auto;
+        min-width: 0; // allows shrinking inside a narrow grid cell
+        width: calc(100% - $_suffix-w); // explicit fallback
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+        box-sizing: border-box;
+      }
+
+      .af-suffix {
+        flex: 0 0 $_suffix-w;
+        width: $_suffix-w;
+        min-width: $_suffix-w;
+      }
+    }
+  }
+
+  .af-input {
+    @include form-input-style;
+    height: $_input-h;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: var(--fs-body);
+
+    &[type="number"] {
+      -moz-appearance: textfield;
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
+
+  .af-textarea {
+    height: auto !important;
+    min-height: 80px;
+    padding: 8px 12px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+
+  .af-suffix {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 $_suffix-w;
+    width: $_suffix-w;
+    min-width: $_suffix-w;
+    height: $_input-h;
+    background: $bg-page;
+    border: 1px solid $border-color;
+    border-left: none;
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    font-size: var(--fs-caption);
+    font-weight: 500;
+    color: $secondary-text-color;
+    white-space: nowrap;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  .af-checkbox {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: $primary-color;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .af-display {
+    display: flex;
+    align-items: center;
+    height: $_input-h;
+    padding: 0 12px;
+    font-size: var(--fs-body);
+    color: $secondary-text-color;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .af-error {
+    margin: 4px 0 0 0;
+    padding: 0;
+    min-height: 16px;
+    line-height: 16px;
+    font-size: var(--fs-caption);
+    color: $danger-color;
+    white-space: normal;
+    word-break: break-word;
+
+    &:empty {
+      color: transparent;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

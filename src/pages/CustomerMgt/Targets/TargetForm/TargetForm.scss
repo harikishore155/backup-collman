@@ -1,0 +1,318 @@
+@use "../../../../main.scss" as *;
+
+.target-form-container {
+  .page-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .page-title-wrap {
+      .title-breadcrumb-group {
+        display: flex;
+        flex-direction: column;
+
+        .breadcrumb-text {
+          font-size: 14px;
+          color: #64748b;
+          margin-bottom: 8px;
+        }
+
+        .title-with-back {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+      }
+    }
+
+    h4 {
+      font-weight: 500;
+      color: $text-color;
+      font-size: var(--fs-h5);
+    }
+
+    .page-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+  }
+
+  .target-form-content {
+    .form-section {
+      border: 1px solid #dfe5ed;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      overflow: clip;
+      background-color: #ffffff;
+      margin-bottom: 24px;
+
+      h4 {
+        font-weight: 500;
+        font-size: 16px;
+        padding: 15px 20px;
+        border-bottom: 1px solid #dfe5ed;
+        margin-bottom: 0px;
+        background-color: #f9fbfd;
+        color: $text-color;
+      }
+
+      .form-section-footer {
+        padding: 0 20px 30px;
+
+        .total-employees-badge {
+          background-color: #f9f9f9;
+          color: $secondary-text-color;
+          padding: 10px 15px;
+          border-radius: 8px;
+          font-size: 0.875rem;
+          border: 1px solid #e2e8f0;
+        }
+      }
+
+      .form-group {
+        padding: 20px;
+
+        .input-container {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          margin-bottom: 20px;
+
+          .form-label {
+            @include form-label-style;
+            margin-bottom: 8px;
+          }
+
+          .form-input {
+            @include form-input-style;
+          }
+
+          .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+          }
+        }
+
+        .type-radio-field {
+          margin-bottom: 20px;
+        }
+
+        .type-radio-group {
+          display: flex;
+          gap: 16px;
+
+          .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: $text-color;
+            margin-bottom: 0;
+
+            input[type="radio"] {
+              width: 18px;
+              height: 18px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ── Portfolio field row: SelectInput + filter icon button side by side ──────
+  .campaign-field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .select-input-wrapper {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+    }
+
+    > *:first-child:not(.filter-icon-btn) {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .filter-icon-btn {
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #64748b;
+      cursor: pointer;
+      transition:
+        border-color 0.15s,
+        background 0.15s,
+        color 0.15s,
+        box-shadow 0.15s;
+
+      &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+        background: rgba($primary-color, 0.04);
+      }
+
+      &.has-filters {
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.06);
+        color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      .filter-dot {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 4px;
+        border-radius: 16px;
+        background: $primary-color;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+// ─── Portfolio Filter Offcanvas ────────────────────────────────────────────────
+
+.portfolio-filter-canvas {
+  width: 360px !important;
+  display: flex;
+  flex-direction: column;
+
+  // ── Header ──
+  .portfolio-canvas-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .canvas-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .canvas-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: #f1f5f9;
+        border-radius: 8px;
+        color: $primary-color;
+        flex-shrink: 0;
+      }
+
+      .canvas-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0;
+      }
+
+      .canvas-active-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 6px;
+        border-radius: 20px;
+        background: $primary-color;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+      }
+    }
+
+    .canvas-close-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: #f1f5f9;
+      border-radius: 8px;
+      color: #64748b;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      flex-shrink: 0;
+
+      &:hover {
+        background: #e2e8f0;
+        color: #1e293b;
+      }
+    }
+  }
+
+  // ── Body ──
+  .portfolio-canvas-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 20px;
+
+    .canvas-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .canvas-field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .canvas-label {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.05em;
+          color: #64748b;
+        }
+      }
+    }
+  }
+
+  // ── Footer ──
+  .portfolio-canvas-footer {
+    padding: 16px 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 10px;
+
+    .canvas-reset-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .canvas-apply-btn {
+      flex: 1;
+    }
+  }
+}

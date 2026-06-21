@@ -1,0 +1,312 @@
+
+
+
+@use "../../../../main.scss" as *;
+
+.target-details-page {
+  .target-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card-container {
+    background: $bg-card;
+    border: 1px solid $border;
+    border-radius: $radius;
+    padding: 20px;
+    box-shadow: $shadow;
+  }
+
+  .target-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      min-width: 0;
+
+      .target-info {
+        flex: 1 1 0;
+        min-width: 0;
+
+        h5 {
+          margin: 0;
+          color: $text-primary;
+          word-break: break-word;
+        }
+
+        .target-meta {
+          display: flex;
+          flex-wrap: wrap;       /* ← wrap instead of overflow */
+          gap: 8px;
+          margin-top: 10px;
+
+          span {
+            display: inline-block;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 6px 10px;
+            color: $text-secondary;
+            font-size: 0.875rem;
+            min-width: 0;
+            word-break: break-word;
+          }
+        }
+
+        .header-status {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          margin-top: 10px;
+
+          label {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: $text-secondary;
+          }
+
+          .status-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+          }
+        }
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;         /* ← never shrink, keeps MoreIcon visible */
+
+        .timestamps {
+          text-align: right;
+          color: $text-secondary;
+          font-size: 0.813rem;
+          line-height: 1.4;
+          white-space: nowrap;
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .target-details-content {
+    .tab-panel-container {
+      background: $bg-card;
+      border: 1px solid $border;
+      border-radius: $radius;
+      padding: 20px;
+      box-shadow: $shadow;
+      min-height: 400px;
+    }
+  }
+
+  .status-tab-content {
+    .target-summary-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+
+      .summary-card {
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+
+      .summary-card-primary {
+        color: #4c1d95;
+        background: #ede9fe;
+      }
+
+      .summary-card-success {
+        color: #166534;
+        background: #dcfce7;
+      }
+    }
+
+    .tele-caller-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .emp-code {
+        color: $text-secondary;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .details-tab-content {
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 14px 16px 16px;
+
+    .details-section {
+      & + .details-section {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid #eef2f7;
+      }
+
+      h6 {
+        margin: 0 0 10px;
+        color: $text-primary;
+        font-weight: 500;
+      }
+    }
+
+    .details-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+
+      .label {
+        color: $text-secondary;
+      }
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background-color: #f9f9f9;
+      color: $secondary-text-color;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(125px, 1fr));
+      gap: 14px 26px;
+    }
+
+    .target-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .label {
+        color: $text-secondary;
+      }
+
+      .value {
+        font-size: 14px;
+        color: #1a1a1a;
+        font-weight: 500;
+        word-break: break-word;
+      }
+    }
+
+    .type-badge {
+      background: #dcfce7;
+      color: #15803d;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      width: fit-content;
+      padding: 5px 9px;
+    }
+  }
+}
+
+/* ── Tablet ─────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .target-details-page {
+    .target-details-header {
+      .header-top {
+        flex-direction: column;
+
+        .header-actions {
+          width: 100%;
+          justify-content: space-between;
+
+          .timestamps {
+            text-align: left;
+            white-space: normal;   /* allow wrap on tablet */
+          }
+        }
+      }
+    }
+
+    .details-tab-content {
+      .target-grid {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .target-details-page {
+    .target-details-header {
+      padding: 14px;
+
+      .header-top {
+        gap: 10px;
+
+        .target-info {
+          h5 {
+            font-size: 1rem;
+          }
+
+          .target-meta {
+            gap: 6px;
+
+            span {
+              font-size: 0.75rem;
+              padding: 4px 8px;
+            }
+          }
+        }
+
+        .header-actions {
+          flex-wrap: wrap;
+          gap: 8px;
+
+          .timestamps {
+            font-size: 0.75rem;
+            white-space: normal;
+            flex: 1;
+          }
+        }
+      }
+    }
+
+    .details-tab-content {
+      padding: 10px;
+
+      .target-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 16px;
+      }
+    }
+
+    .status-tab-content {
+      .target-summary-cards {
+        .summary-card {
+          flex: 1 1 calc(50% - 6px);  /* 2 cards per row on mobile */
+        }
+      }
+    }
+  }
+}

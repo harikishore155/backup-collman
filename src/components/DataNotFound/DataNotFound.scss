@@ -1,0 +1,262 @@
+@use "../../main.scss" as *;
+
+.data-not-found-page {
+  @include flex-center;
+  min-height: 70vh;
+  padding: 40px 20px;
+  background-color: transparent;
+  font-family: $font;
+
+  .data-not-found-card {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    background: $bg-card;
+    border: 1px solid rgba($border-color, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 5px 15px -5px rgba(0, 0, 0, 0.03);
+    padding: 48px 40px;
+    overflow: hidden;
+    animation: cardFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    @media (max-width: 480px) {
+      padding: 32px 24px;
+    }
+
+    // Decorative Blur Blobs
+    .blob {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.15;
+      z-index: 1;
+      pointer-events: none;
+
+      &-1 {
+        top: -20px;
+        left: -20px;
+        background-color: $primary-color;
+      }
+
+      &-2 {
+        bottom: -20px;
+        right: -20px;
+        background-color: $tertiary-color;
+      }
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  // ── Illustration ──
+  .illustration-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 28px;
+
+    .illustration-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .icon-badge {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: #ffffff;
+      border: 1.5px solid $border-color;
+      box-shadow: $shadow;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      @include flex-center;
+      color: $primary-color;
+      animation: badgeFloat 3s ease-in-out infinite;
+    }
+  }
+
+  // ── Typography ──
+  .title {
+    font-size: 22px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: $tertiary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 16px 0;
+  }
+
+  .description {
+    font-size: 14px;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0 0 28px 0;
+    max-width: 460px;
+
+    strong {
+      color: $text-primary;
+      font-weight: 500;
+    }
+  }
+
+  // ── Troubleshoot box ──
+  .troubleshoot-box {
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid rgba($border-color, 0.6);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    text-align: left;
+
+    .troubleshoot-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0 0 10px 0;
+    }
+
+    .troubleshoot-list {
+      margin: 0;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      li {
+        font-size: 13px;
+        color: $text-secondary;
+        line-height: 1.5;
+
+        &::marker {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  // ── Actions ──
+  .actions-group {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: 180px;
+      height: 44px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+
+      .btn-icon {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// ── Animations ──
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+// SVG internal animations
+.magnifier {
+  transform-origin: 110px 110px;
+  animation: magnifierScan 4s ease-in-out infinite;
+}
+
+@keyframes magnifierScan {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-10px, -8px) scale(1.05);
+  }
+  50% {
+    transform: translate(12px, 5px) scale(0.95);
+  }
+  75% {
+    transform: translate(-5px, 8px) scale(1.02);
+  }
+}
+
+.sparkle {
+  animation: sparkleFade 3s ease-in-out infinite;
+
+  &-1 { animation-delay: 0s; }
+  &-2 { animation-delay: 1s; }
+  &-3 { animation-delay: 2s; }
+}
+
+@keyframes sparkleFade {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.db-cylinder {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.db-light {
+  animation: statusLight 4s steps(1) infinite;
+}
+
+@keyframes statusLight {
+  0%, 100% { fill: #ef4444; } // red
+  33% { fill: #f59e0b; } // amber
+  66% { fill: #10b981; } // green
+}

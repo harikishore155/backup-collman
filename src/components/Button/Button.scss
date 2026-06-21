@@ -1,0 +1,110 @@
+@use "../../main.scss" as *;
+
+.app-btn {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  // display: flex;
+  // align-items: center;
+  // gap: 5px;
+  vertical-align: bottom;
+
+  &.primary {
+    @include btn-style($primary-color, #ffffff);
+    border: 1px solid transparent;
+    box-shadow:
+      #0000001a 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: $primary-color;
+      transition: 0.3s ease-in-out all;
+    }
+
+    &:disabled {
+      // background-color: #ebebeb;
+      // color: #8a8a8a;
+      // box-shadow: none;
+      cursor: not-allowed;
+    }
+  }
+
+  &.secondary {
+    @include btn-style(#ececec, #222222);
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: #ececec;
+      transition: 0.3s ease-in-out all;
+    }
+  }
+
+  &.tertiary {
+    @include btn-style(#00000000, $primary-color);
+    border: 1px solid $primary-color;
+
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: #5b79c427;
+      transition: 0.3s ease-in-out all;
+    }
+  }
+
+  &.danger {
+    @include btn-style(#ff5f5700, $danger-color);
+    border: 1px solid $danger-color;
+
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: #ff5f5712;
+      transition: 0.3s ease-in-out all;
+    }
+  }
+
+  &.custom {
+    @include btn-style(#f9fafb, $secondary-text-color);
+    border: 1px solid $border-color;
+
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: #9c9c9c1f;
+      transition: 0.3s ease-in-out all;
+    }
+  }
+
+  // Button size added
+  &.sm {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+
+  &.md {
+    padding: 6px 15px;
+    font-size: 14px;
+  }
+
+  &.lg {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  &.xl {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}

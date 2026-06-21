@@ -1,0 +1,194 @@
+@use "../../../main.scss" as *;
+
+.dashboard-filter-trigger-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: $gap;
+}
+
+.dashboard-filter-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  font: inherit;
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 5px;
+    border-radius: 10px;
+    background: #ffffff;
+    color: $primary-color;
+    font-size: 10px;
+    font-weight: 700;
+  }
+}
+
+.dashboard-filter-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.32);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.dashboard-filter-modal {
+  position: relative;
+  z-index: 1401;
+  width: min(1100px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.22);
+}
+
+.dashboard-filter-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 15px;
+  border-bottom: 1px solid $border-color;
+
+  h2 {
+    margin: 0;
+    color: $text-color;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  p {
+    margin: 4px 0 0;
+    color: $secondary-text-color;
+    font-size: 12px;
+  }
+
+  button,
+  .dashboard-filter-close-btn {
+    display: flex !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: $secondary-text-color !important;
+    padding: 6px !important;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: rgba($danger-color, 0.08) !important;
+      color: $danger-color !important;
+    }
+  }
+}
+
+.dashboard-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px 16px;
+  padding: 18px 20px 4px;
+  overflow: visible;
+
+  .filter-item,
+  .select-input-wrapper {
+    margin-bottom: 14px;
+  }
+}
+
+.dashboard-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+  color: $secondary-text-color;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  input {
+    width: 100%;
+    min-height: 39px;
+    border: 1.5px solid $border-color;
+    border-radius: 8px;
+    padding: 8px 11px;
+    background: $bg-card;
+    color: $text-color;
+    font: inherit;
+    text-transform: none;
+    letter-spacing: normal;
+
+    &:hover,
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.dashboard-filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 20px;
+  border-top: 1px solid $border-color;
+}
+
+.dashboard-primary-btn,
+.dashboard-secondary-btn {
+  border-radius: 6px;
+  border: 1px solid $primary-color;
+  padding: 8px 14px;
+  cursor: pointer;
+  font: inherit;
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.dashboard-primary-btn {
+  color: #fff;
+  background: $primary-color;
+}
+
+.dashboard-secondary-btn {
+  color: $primary-color;
+  background: $bg-card;
+}
+
+.dashboard-filter-date {
+  margin-bottom: 0 !important;
+}
+
+
+@media (max-width: 800px) {
+  .dashboard-filter-backdrop {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .dashboard-filter-modal {
+    max-height: calc(100vh - 24px);
+  }
+
+  .dashboard-filter-grid {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+}

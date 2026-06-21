@@ -1,0 +1,290 @@
+@use "../../../main.scss" as *;
+
+.upload-page-container {
+
+  // ── Header ──────────────────────────────────────────
+  .upload-header-container {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .upload-header {
+      .upload-title {
+        font-size: var(--fs-h4);
+        font-weight: 500;
+        color: $text-primary;
+        margin: 4px 0;
+        line-height: 1.2;
+      }
+
+      .upload-subtitle {
+        font-size: var(--fs-body);
+        color: $text-secondary;
+        margin: 0;
+      }
+    }
+  }
+
+  // ── Stepper ─────────────────────────────────────────
+  .upload-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: $font-primary;
+
+    .MuiStepper-root,
+    .MuiStepLabel-root,
+    .MuiStepLabel-label,
+    .MuiStepIcon-text {
+      font-family: $font-primary !important;
+      font-size: var(--fs-h6);
+      font-weight: 500;
+    }
+  }
+
+  // ── Card ────────────────────────────────────────────
+  .upload-card {
+    border: 1px solid #dfe5ed;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-top: 16px;
+    width: 100%;
+
+    .card-head {
+      background-color: #f9fbfd;
+      border-bottom: 1px solid #dfe5ed;
+      border-radius: 8px 8px 0 0;
+      padding: 10px 20px;
+
+      .card-head-title {
+        font-size: var(--fs-body);
+        font-weight: 500;
+        color: $text-primary;
+        margin: 0;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        font-variant-ligatures: none;
+      }
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+  }
+
+  // ── Fields Grid ─────────────────────────────────────
+  .fields-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .field-col {
+      display: flex;
+      flex-direction: column;
+
+      .field-label {
+        @include form-label-style;
+        font-size: 12px;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .field-input {
+        @include form-input-style;
+        height: 44px;
+        margin-bottom: 0;
+      }
+
+      .dropdown {
+        display: block;
+        width: 100%;
+        min-width: unset;
+      }
+    }
+  }
+
+  // ── Campaign field row: SelectInput + filter button ──
+  .campaign-field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .select-input-wrapper {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+    }
+
+    .filter-icon-btn {
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #64748b;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s,
+        box-shadow 0.15s;
+
+      &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+        background: rgba($primary-color, 0.04);
+      }
+
+      &.has-filters {
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.06);
+        color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      .filter-dot {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 4px;
+        border-radius: 16px;
+        background: $primary-color;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+    }
+  }
+
+  // ── Upload Zone ─────────────────────────────────────
+  .upload-zone {
+    @include flex-center;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px dashed #dfe5ed;
+    border-radius: 14px;
+    padding: 40px 20px;
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      background-color 0.2s;
+    background-color: #fbfcfe;
+
+    &:hover,
+    &-drag {
+      border-color: $primary-color;
+      background-color: #f0f6fc;
+    }
+
+    &-icon {
+      @include flex-center;
+      color: $primary-color;
+
+      svg {
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    &-text {
+      font-size: var(--fs-body);
+      color: $text-secondary;
+      margin: 0;
+    }
+
+    &-link {
+      color: $primary-color;
+      font-weight: 500;
+      text-decoration: underline;
+      font-variant-ligatures: none;
+    }
+  }
+
+  // ── File Pill ────────────────────────────────────────
+  .file-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    width: fit-content;
+    max-width: 320px;
+
+    &-icon {
+      display: flex;
+      flex-shrink: 0;
+      color: $primary-color;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    &-name {
+      font-size: var(--fs-body);
+      font-weight: 500;
+      color: $text-primary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &-meta {
+      font-size: var(--fs-caption);
+      color: $text-muted;
+    }
+
+    &-remove {
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-left: auto;
+      flex-shrink: 0;
+      color: $text-muted;
+      transition: color 0.2s;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      &:hover {
+        color: $danger-color;
+      }
+    }
+  }
+}

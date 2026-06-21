@@ -1,0 +1,40 @@
+@use "../../main.scss" as *;
+
+.multi-select-menu {
+  .MuiMenuItem-root {
+    font-family: $font-primary !important;
+    font-size: 14px;
+  }
+}
+
+.multi-select-wrapper {
+  max-width: 100%;
+  margin-bottom: 25px;
+
+  .multi-select-input {
+    padding: 11px 15px;
+    min-width: 150px;
+    font-family: $font-primary;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: inherit;
+    background-color: #ffffff;
+
+    .MuiOutlinedInput-input {
+      padding: 0px;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border: 1px solid #a5a5a5;
+    }
+
+    &.Mui-focused .MuiOutlinedInput-notchedOutline,
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: $primary-color;
+    }
+  }
+
+  .multi-select-placeholder {
+    color: #999;
+  }
+}

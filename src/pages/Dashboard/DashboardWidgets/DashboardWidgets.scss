@@ -1,0 +1,157 @@
+@use "../../../main.scss" as *;
+
+.dashboard-widget {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 16px 18px;
+  min-width: 0;
+
+  h2 { margin: 0 0 14px; font-size: 15px; font-weight: 500; color: $text-primary; }
+}
+.dashboard-chart { min-height: 280px; }
+.dashboard-state, .dashboard-error { min-height: 90px; display: flex; align-items: center; justify-content: center; color: $text-secondary; text-align: center; }
+.dashboard-error { color: #b42318; }
+.dashboard-widget-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.dashboard-widget-heading h2 { margin: 0; }
+.dashboard-widget-search { width: 240px; max-width: 100%; }
+.dashboard-table-widget { margin-bottom: $gap; }
+.dashboard-table-scroll { overflow-x: auto; border: 1px solid $border; border-radius: 6px; }
+.dashboard-table-scroll table { width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 12px; }
+.dashboard-table-scroll th, .dashboard-table-scroll td { padding: 9px 11px; border-bottom: 1px solid $border; text-align: left; }
+.dashboard-table-scroll th { background: $bg-thead; font-weight: 500; }
+.dashboard-table-scroll th button,
+.dashboard-table-scroll th .app-btn {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  font: inherit !important;
+  cursor: pointer;
+  font-weight: 500 !important;
+  color: inherit !important;
+}
+.dashboard-link-btn,
+.dashboard-link-btn.app-btn {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: $primary-color !important;
+  cursor: pointer;
+  text-decoration: underline !important;
+  font: inherit !important;
+  display: inline !important;
+}
+.dashboard-pagination { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 12px; font-size: 12px; }
+.dashboard-pagination button,
+.dashboard-pagination .app-btn {
+  border: 1px solid $border !important;
+  border-radius: 5px !important;
+  background: $bg-card !important;
+  box-shadow: none !important;
+  padding: 5px 9px !important;
+  cursor: pointer;
+  font: inherit !important;
+  color: inherit !important;
+  min-height: auto !important;
+  height: auto !important;
+
+  &:disabled {
+    opacity: .45 !important;
+    cursor: not-allowed;
+    background: $bg-card !important;
+    color: inherit !important;
+  }
+}
+.dashboard-alerts { margin-bottom: $gap; }
+.dashboard-alerts ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.dashboard-alerts li { display: flex; justify-content: space-between; gap: 10px; padding: 10px; border: 1px solid $border; border-radius: 6px; }
+.dashboard-alerts li div { display: flex; flex-direction: column; gap: 3px; font-weight: 500; font-size: 13px; color: $text-primary; }
+.dashboard-alerts li span { color: $text-secondary; font-size: 12px; font-weight: 400; }
+.dashboard-drilldown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.32);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.dashboard-drilldown {
+  position: relative;
+  z-index: 1401;
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.22);
+  padding: 24px;
+  width: min(1000px, 95vw);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    margin: 0;
+    color: $text-primary;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.dashboard-drilldown-search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+  font-size: 11px;
+  font-weight: 500;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.dashboard-drilldown-search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+  font-size: 11px;
+  font-weight: 500;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  input {
+    width: 100%;
+    min-height: 36px;
+    border: 1.5px solid $border;
+    border-radius: 8px;
+    padding: 8px 11px;
+    background: $bg-card;
+    color: $text-primary;
+    font: inherit;
+    text-transform: none;
+    letter-spacing: normal;
+
+    &:hover,
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}

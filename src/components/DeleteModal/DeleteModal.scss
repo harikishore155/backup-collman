@@ -1,0 +1,42 @@
+@use "../../main.scss" as *;
+
+.delete-modal {
+    .modal-content {
+        padding: 40px 0px;
+        text-align: center;
+    }
+
+    .delete-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgba($danger-color, 0.15);
+        color: $danger-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 15px;
+        transition: all 0.2s ease-in-out;
+
+        svg {
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:hover {
+            background-color: $danger-color;
+            color: #ffffff;
+
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+}

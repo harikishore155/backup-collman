@@ -1,0 +1,201 @@
+@use "../../../../main.scss" as *;
+
+.targets-page-container {
+  .targets-table {
+
+    .target-name-cell,
+    .client-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      strong {
+        font-weight: 500;
+        color: #1e293b;
+      }
+
+      .target-code,
+      .client-code {
+        font-size: 12px;
+        color: #64748b;
+      }
+    }
+
+    .type-badge {
+      padding: 6px 12px;
+      border-radius: 7px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      font-weight: 500;
+      font-size: 13px;
+
+      &.bkt {
+        background: #2563eb;
+        color: #ffffff;
+      }
+
+      &.rec {
+        background: #7c3aed;
+        color: #ffffff;
+      }
+    }
+
+    .target-field-chip,
+    .target-date-chip {
+      display: inline-flex;
+    }
+
+    .target-field-chip {
+      &.target-id {
+        background: #eff6ff;
+        color: #2563eb;
+        cursor: pointer;
+
+        transition: background 0.15s ease, color 0.15s ease;
+
+        &:hover {
+          background: #dbeafe;
+          color: #1d4ed8;
+
+        }
+      }
+
+
+      &.month {
+        background: #fef3c7;
+        color: #b45309;
+      }
+
+      &.location {
+        background: #ecfeff;
+        color: #0891b2;
+      }
+
+      &.state {
+        background: #f0fdf4;
+        color: #16a34a;
+      }
+
+      &.branch {
+        background: #ffedd5;
+        color: #c2410c;
+      }
+
+      &.bank {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      &.product {
+        background: #fce7f3;
+        color: #be185d;
+      }
+
+      &.count {
+        background: #e0f2fe;
+        color: #0369a1;
+      }
+
+      &.fos {
+        background: #dcfce7;
+        color: #15803d;
+      }
+
+      &.tc {
+        background: #e0e7ff;
+        color: #4338ca;
+      }
+
+      &.tl {
+        background: #ffedd5;
+        color: #c2410c;
+      }
+
+      &.total {
+        background: #ede9fe;
+        color: #6d28d9;
+      }
+
+      &.percent {
+        background: #fef9c3;
+        color: #a16207;
+      }
+
+      &.resolution {
+        background: #ccfbf1;
+        color: #0f766e;
+      }
+
+      &.rbnr {
+        background: #fae8ff;
+        color: #a21caf;
+      }
+
+      &.money {
+        background: #ecfdf5;
+        color: #047857;
+      }
+
+      &.goal {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      &.achieved {
+        background: #dcfce7;
+        color: #15803d;
+      }
+
+      &.daily {
+        background: #cffafe;
+        color: #0e7490;
+      }
+
+      &.cases {
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      &.paid {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+
+      &.ptp {
+        background: #fff7ed;
+        color: #ea580c;
+      }
+
+      &.achieved-rbnr {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+
+      &.days {
+        background: #e2e8f0;
+        color: #334155;
+      }
+    }
+
+
+
+    .status-badge {
+      padding: 6px 12px;
+      border-radius: 7px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      font-weight: 500;
+      font-size: 13px;
+
+      &.active {
+        background: #40c915;
+        color: #ffffff;
+      }
+
+      &.inactive {
+        background: #ff1f2d;
+        color: #ffffff;
+      }
+    }
+  }
+}

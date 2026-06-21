@@ -1,0 +1,24 @@
+@use "../../main.scss" as *;
+
+.multi-tabs-container {
+  overflow: auto;
+
+  .MuiTabs-indicator {
+    background-color: $primary-color !important;
+    border-radius: 10px;
+  }
+
+  .multiple-tab {
+    font-family: $font-primary;
+    padding: 0px;
+    margin-right: 40px;
+    // font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    min-width: fit-content;
+
+    &.Mui-selected {
+      color: $primary-color !important;
+    }
+  }
+}

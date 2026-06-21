@@ -1,0 +1,33 @@
+@use "../../main.scss" as *;
+
+.filter-time-picker {
+    width: 100%;
+
+    .custom-date-picker {
+        @include form-input-style;
+        padding: 5px 5px 5px 15px;
+        margin-bottom: 15px;
+    }
+
+    .MuiFormLabel-root {
+        font-family: $font-primary;
+    }
+
+    .MuiPickersInputBase-root {
+        font-size: 14px;
+    }
+
+    .MuiPickersSectionList-section {
+        span {
+            font-family: $font-primary;
+        }
+    }
+
+    .MuiPickersSectionList-root {
+        padding-bottom: 0px;
+    }
+
+    .MuiSvgIcon-root {
+        font-size: 18px;
+    }
+}

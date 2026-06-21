@@ -1,0 +1,20 @@
+@use "../../main.scss" as *;
+
+.table-skeleton-cell {
+    text-align: center;
+    border-bottom: 1px solid #EEF0F3;
+
+    width: auto;
+    height: 40px;
+    box-sizing: border-box;
+
+    .MuiSkeleton-root {
+        border-radius: 6px;
+    }
+}
+
+// .table-list {
+//     width: 100%;
+//     border-collapse: collapse;
+//     table-layout: fixed;
+// }

@@ -1,0 +1,40 @@
+@use "../../main.scss" as *;
+
+.grand-access-container {
+    .modal-header {
+        padding: 15px 20px;
+
+        .modal-title {
+            font-size: 16px;
+        }
+    }
+
+    .modal-body {
+        padding: 20px 20px;
+
+        .card-wrapper {
+            .card-container {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+                background-color: #f5f5f5;
+
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+
+                .card-label {
+                    span {
+                        color: $secondary-text-color;
+                    }
+                }
+            }
+
+            .card-meta {
+                margin-left: auto;
+            }
+        }
+    }
+}

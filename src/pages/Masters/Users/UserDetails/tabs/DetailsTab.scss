@@ -1,0 +1,52 @@
+@use "../../../../../main.scss" as *;
+
+.details-tab-content {
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .label {
+        font-size: 14px;
+        color: $secondary-text-color;
+        font-weight: 500;
+      }
+
+      .value {
+        font-size: 14px;
+        color: $text-color;
+        font-weight: 500;
+        word-break: break-word;
+      }
+
+      &:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      &:nth-child(6) {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .details-tab-content {
+    .details-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .details-tab-content {
+    .details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use "../../../../../main.scss" as *;
+
+.access-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .access-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: none;
+
+    .access-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .access-title {
+        font-size: 1rem;
+        color: $secondary-text-color;
+        font-weight: 500;
+      }
+
+      .access-permissions {
+        font-size: 16px;
+        color: $text-color;
+      }
+    }
+  }
+}

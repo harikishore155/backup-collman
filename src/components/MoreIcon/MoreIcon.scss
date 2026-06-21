@@ -1,0 +1,78 @@
+@use "../../main.scss" as *;
+
+.more-icon {
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #ececec;
+  color: #3e3e3e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 35px;
+  height: 35px;
+  transition: all 0.2s ease;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover,
+  &.active {
+    background-color: $primary-color;
+    color: #ffffff;
+  }
+}
+
+.action-dropdown-menu {
+  .MuiPaper-root {
+    min-width: 140px;
+    margin-top: 5px;
+    border: 1px solid $border-color;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .MuiList-root {
+    padding: 6px;
+  }
+
+  .action-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: $font-primary;
+    font-size: 14px;
+    color: $text-color;
+    transition: all 0.2s ease;
+
+    .action-icon {
+      font-size: 16px;
+      color: $secondary-text-color;
+    }
+
+    &:hover {
+      background-color: #eff4f9;
+      color: $primary-color;
+
+      .action-icon {
+        color: $primary-color;
+      }
+    }
+
+    &.delete {
+      color: $danger-color;
+
+      .action-icon {
+        color: $danger-color;
+      }
+
+      &:hover {
+        background-color: #fff1f0;
+      }
+    }
+  }
+}

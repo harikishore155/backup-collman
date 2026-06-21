@@ -1,0 +1,29 @@
+@use "../../main.scss" as *;
+
+.vertical-tabs-container {
+  min-width: 250px;
+
+  .tabs-list {
+    .tab-item {
+      font-family: $font-primary;
+      text-transform: capitalize;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      color: $text-color;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: start;
+
+      &:hover {
+        background-color: rgba($primary-color, 0.10);
+        color: $primary-color;
+      }
+
+      &.Mui-selected {
+        background-color: rgba($primary-color, 0.10);
+        color: $primary-color;
+      }
+    }
+  }
+}

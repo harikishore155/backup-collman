@@ -1,0 +1,234 @@
+@use "../../../../main.scss" as *;
+
+.allocation-details-page {
+
+  // ── Title row: back arrow + h5 inline ─────────────────────────────────
+  .allocation-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h5 {
+      margin: 0;
+      font-weight: 500;
+      word-break: break-word;
+    }
+  }
+
+  .card-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .allocation-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .allocation-info {
+        .allocation-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          align-items: center;
+
+          span {
+            background-color: #f9f9f9;
+            color: $secondary-text-color;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+          }
+
+          .allocation-approval-meta {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #b45309;
+            background: rgba(245, 158, 11, 0.12);
+          }
+        }
+      }
+    }
+
+    .header-status {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .status-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+    }
+  }
+
+  .cases-tab-content {
+    .cases-tab-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 16px 18px;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background: $bg-card;
+
+      h6 {
+        margin: 0 0 4px;
+        color: $text-primary;
+        font-weight: 600;
+      }
+
+      span {
+        color: $text-secondary;
+        font-size: var(--fs-body-sm);
+      }
+    }
+
+    .cases-upload-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    // ── Name & phone links ──────────────────────────────────────────────────
+    .case-name-link,
+    .case-phone-link {
+      color: #519dd7;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    // ── Contact cell ────────────────────────────────────────────────────────
+    .contact-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #2563eb;
+        font-size: 14px;
+        font-weight: 500;
+
+        svg {
+          color: #2563eb;
+          flex-shrink: 0;
+        }
+
+        &.email {
+          color: $secondary-text-color;
+
+          svg {
+            color: $secondary-text-color;
+          }
+        }
+      }
+    }
+
+    // ── Chips — mirrors CustomersList chip styles exactly ───────────────────
+    .case-field-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 30px;
+
+      padding: 5px 10px;
+      border-radius: 7px;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.1;
+      white-space: nowrap;
+
+      &.account {
+        background: #f8fafc;
+        color: #64748b;
+      }
+
+      &.campaign {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+
+      &.client {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      &.product {
+        background: #fce7f3;
+        color: #be185d;
+      }
+
+      &.money {
+        background: #ecfdf5;
+        color: #047857;
+      }
+    }
+
+    // ── Update button ───────────────────────────────────────────────────────
+    .update-btn {
+      border-color: $primary-color;
+      color: $primary-color;
+      border-radius: 6px;
+      font-weight: 500;
+      padding: 4px 12px;
+
+      &:hover {
+        background-color: $primary-color;
+        color: #ffffff;
+      }
+    }
+
+    // ── Table header ────────────────────────────────────────────────────────
+    .cases-table {
+      margin-top: 1rem;
+
+      .ant-table-thead>tr>th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cases-tab-actions {
+        align-items: stretch;
+        flex-direction: column;
+
+        .cases-upload-actions {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          .app-btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@use "../../../../main.scss" as *;
+
+.user-details-page {
+  .user-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .user-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .user-info {
+        .user-title-row h5 {
+          margin: 0;
+        }
+
+        h5 {
+          font-weight: 500;
+        }
+
+        .user-meta {
+          display: flex;
+          gap: 1.5rem;
+          margin-top: 10px;
+
+          span {
+            background-color: #f9f9f9;
+            color: $secondary-text-color;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+
+    .header-middle {
+      .password-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        color: $secondary-text-color;
+
+        .reset-password-btn {
+          background: none;
+          border: none;
+          padding: 0;
+          color: #0085ff;
+          font-weight: 500;
+          margin-left: 0.5rem;
+          cursor: pointer;
+          font-size: inherit;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .header-status {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-weight: 500;
+        font-size: 0.875rem;
+      }
+
+      .status-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        span {
+          font-size: 0.875rem;
+          font-weight: 500;
+
+          &.active {
+            color: #101828;
+          }
+
+          &.inactive {
+            color: #667085;
+          }
+        }
+      }
+    }
+  }
+
+  .user-details-content {
+    margin-top: 1rem;
+
+    .tab-panel-container {
+      background: #fff;
+      border-radius: 8px;
+      margin-top: 0;
+    }
+  }
+}

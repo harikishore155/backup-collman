@@ -1,0 +1,51 @@
+@use "../../../main.scss" as *;
+
+// ─── Stat Card ────────────────────────────────────────────────────────────────
+.stat-card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 20px 22px 22px;
+  min-height: 130px;
+  width: 100%;
+  box-sizing: border-box;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+    transform: translateY(-1px);
+  }
+}
+
+.stat-card-clickable {
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+
+  &:focus-visible {
+    outline: 2px solid $blue-primary;
+    outline-offset: 2px;
+  }
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: clamp(24px, 3vw, 42px);
+  font-weight: 400;
+  color: $blue-value;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}

@@ -1,0 +1,372 @@
+// @use "../../../../main.scss" as *;
+
+// .customer-form-container {
+//   .page-header-container {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     flex-wrap: wrap;
+
+//     .page-title-wrap {
+//       .title-breadcrumb-group {
+//         display: flex;
+//         flex-direction: column;
+
+//         .breadcrumb-text {
+//           font-size: 14px;
+//           color: #64748b;
+//           margin-bottom: 8px;
+//         }
+
+//         .title-with-back {
+//           display: flex;
+//           align-items: center;
+//           gap: 15px;
+//         }
+//       }
+//     }
+
+//     h4 {
+//       font-weight: 500;
+//       color: $text-color;
+//       font-size: var(--fs-h5);
+//     }
+
+//     .page-header-actions {
+//       display: flex;
+//       align-items: center;
+//       gap: 12px;
+//       flex-shrink: 0;
+//     }
+//   }
+
+//   // ── form sections ───────────────────────────────────────────────────────────
+//   .customer-form-content {
+//     .form-section {
+//       border: 1px solid #dfe5ed;
+//       box-shadow:
+//         0 1px 3px rgba(0, 0, 0, 0.06),
+//         0 1px 2px rgba(0, 0, 0, 0.04);
+//       border-radius: 8px;
+//       overflow: clip;
+//       background-color: #ffffff;
+//       margin-bottom: 24px;
+
+//       h4 {
+//         font-weight: 500;
+//         font-size: 16px;
+//         padding: 15px 20px;
+//         border-bottom: 1px solid #dfe5ed;
+//         margin-bottom: 0;
+//         background-color: #f9fbfd;
+//         color: $text-color;
+//       }
+
+//       .form-group {
+//         padding: 20px;
+
+//         .input-container {
+//           display: flex;
+//           flex-direction: column;
+//           position: relative;
+//           margin-bottom: 20px;
+
+//           .form-label {
+//             @include form-label-style;
+//             margin-bottom: 8px;
+
+//             .required {
+//               color: #e53e3e;
+//               margin-left: 2px;
+//             }
+//           }
+
+//           .form-input {
+//             @include form-input-style;
+//           }
+
+//           .form-textarea {
+//             min-height: 120px;
+//             resize: vertical;
+//           }
+
+//           .error-message {
+//             font-size: 12px;
+//             color: #e53e3e;
+//             margin-top: 4px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+@use "../../../../main.scss" as *;
+
+.customer-form-container {
+  .page-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .page-title-wrap {
+      .title-breadcrumb-group {
+        display: flex;
+        flex-direction: column;
+
+        .breadcrumb-text {
+          font-size: 14px;
+          color: #64748b;
+          margin-bottom: 8px;
+        }
+
+        .title-with-back {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+      }
+    }
+
+    h4 {
+      font-weight: 500;
+      color: $text-color;
+      font-size: var(--fs-h5);
+    }
+
+    .page-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+  }
+
+  // ── form sections ───────────────────────────────────────────────────────────
+  .customer-form-content {
+    .form-section {
+      border: 1px solid #dfe5ed;
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      overflow: clip;
+      background-color: #ffffff;
+      margin-bottom: 24px;
+
+      h4 {
+        font-weight: 500;
+        font-size: 16px;
+        padding: 15px 20px;
+        border-bottom: 1px solid #dfe5ed;
+        margin-bottom: 0;
+        background-color: #f9fbfd;
+        color: $text-color;
+      }
+
+      .form-group {
+        padding: 20px;
+
+        .input-container {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          margin-bottom: 20px;
+
+          .form-label {
+            @include form-label-style;
+            margin-bottom: 8px;
+
+            .required {
+              color: #e53e3e;
+              margin-left: 2px;
+            }
+          }
+
+          .form-input {
+            @include form-input-style;
+          }
+
+          .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+          }
+
+          .error-message {
+            font-size: 12px;
+            color: #e53e3e;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  // ── Campaign field row: SelectInput + filter button ─────────────────────────
+  .campaign-field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    // SelectInput stretches to fill available width
+    .select-input-wrapper {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+    }
+
+    // Fallback if SelectInput doesn't use .select-input-wrapper
+    > *:first-child:not(.filter-icon-btn) {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .filter-icon-btn {
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #64748b;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s,
+        box-shadow 0.15s;
+
+      &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+        background: rgba($primary-color, 0.04);
+      }
+
+      // Active — one or more filters applied
+      &.has-filters {
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.06);
+        color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      .filter-dot {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 4px;
+        border-radius: 16px;
+        background: $primary-color;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+// ── Campaign Filter Offcanvas (global scope — Bootstrap renders outside container) ──
+
+.campaign-filter-canvas {
+  width: 380px !important;
+
+  .offcanvas-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #dfe5ed;
+
+    .offcanvas-title {
+      font-size: var(--fs-h6);
+      font-weight: 600;
+      color: $text-primary;
+    }
+
+    .btn-close {
+      opacity: 0.45;
+      transition: opacity 0.15s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Body is a flex column so footer always sticks to bottom
+  .campaign-filter-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+  }
+
+  // Scrollable filter area
+  .filter-fields {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .filter-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filter-field-label {
+    @include form-label-style;
+    margin: 0;
+  }
+
+  // Sticky footer with Reset + Apply
+  .filter-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-top: 1px solid #dfe5ed;
+    background-color: #f9fbfd;
+
+    .filter-reset-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border: 1px solid #dfe5ed;
+      border-radius: 8px;
+      background: #ffffff;
+      color: $text-primary;
+      font-size: var(--fs-body);
+      font-weight: 500;
+      font-family: $font-primary;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.15s, background 0.15s;
+
+      .reset-icon {
+        font-size: 15px;
+        line-height: 1;
+        display: inline-flex;
+      }
+
+      &:hover {
+        border-color: #b0bec5;
+        background: #f1f5f9;
+      }
+    }
+
+    // Apply Filters button takes remaining width
+    > :last-child {
+      flex: 1;
+    }
+  }
+}

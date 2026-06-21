@@ -1,0 +1,275 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+// ── Local tokens (matching design) ──────────────────────────────────────────
+$field-bg      : #f9fafb;
+$field-border  : #dfe5ed;
+$field-radius  : 7.5px;
+$field-height  : 38px;
+$caret-panel   : #eef0f3;
+$label-color   : #64748b;
+
+// ── Page ────────────────────────────────────────────────────────────────────
+.ird-page {
+  min-height: 100vh;
+  background-color: $bg-page;
+  padding: 28px 0;
+}
+
+.ird-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ── Header ──────────────────────────────────────────────────────────────────
+.ird-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ird-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  // Remove the default bottom margin the MUI Breadcrumbs adds
+  // so spacing is controlled by .ird-header-left gap only
+  .MuiBreadcrumbs-root {
+    margin-bottom: 0 !important;
+  }
+}
+
+.ird-page-title {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+  line-height: 1.2;
+  font-family: $font;
+}
+
+.ird-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  // align with bottom of title
+  padding-bottom: 2px;
+}
+
+// ── Form ────────────────────────────────────────────────────────────────────
+.ird-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ── Section Card ─────────────────────────────────────────────────────────────
+.ird-section {
+  background: #ffffff;
+  border: 1px solid $field-border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  overflow: visible;
+}
+
+.ird-section-header {
+  background-color: #f9fbfd;
+  padding: 13px 20px;
+  border-bottom: 1px solid $field-border;
+}
+
+.ird-section-title {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: $text-primary;
+  font-family: $font;
+}
+
+.ird-section-body {
+  padding: 20px 20px 24px;
+}
+
+// ── Grids ────────────────────────────────────────────────────────────────────
+.ird-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 20px;
+}
+
+.ird-grid-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.ird-mt {
+  margin-top: 14px;
+}
+
+// ── Field ────────────────────────────────────────────────────────────────────
+.ird-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ird-label {
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: $label-color;
+  font-family: $font;
+  line-height: 1.4;
+}
+
+// ── Text / Textarea Input ─────────────────────────────────────────────────────
+.ird-input {
+  height: $field-height;
+  border: 1px solid $field-border;
+  border-radius: $field-radius;
+  padding: 0 12px;
+  font-size: var(--fs-body);
+  font-family: $font;
+  color: $text-primary;
+  background: $field-bg;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &::placeholder { color: $text-muted; }
+
+  &:hover  { border-color: #b8c2ce; }
+
+  &:focus  {
+    border-color: $blue-primary;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba($blue-primary, 0.1);
+  }
+}
+
+.ird-textarea {
+  height: auto;
+  padding: 10px 12px;
+  resize: vertical;
+  min-height: 72px;
+}
+
+.ird-field-error {
+  border-color: #e53e3e !important;
+
+  &:focus { box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1) !important; }
+}
+
+.ird-error-msg {
+  font-size: var(--fs-caption);
+  color: #e53e3e;
+}
+
+// ── Select ───────────────────────────────────────────────────────────────────
+.ird-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  height: $field-height;
+  border: 1px solid $field-border;
+  border-radius: $field-radius;
+  background: $field-bg;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover       { border-color: #b8c2ce; }
+  &:focus-within {
+    border-color: $blue-primary;
+    box-shadow: 0 0 0 3px rgba($blue-primary, 0.1);
+  }
+}
+
+.ird-select {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background: transparent;
+  padding: 0 0 0 12px;
+  font-size: var(--fs-body);
+  font-family: $font;
+  color: $text-primary;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.ird-select-caret {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  flex-shrink: 0;
+  background: $caret-panel;
+  border-left: 1px solid $field-border;
+  pointer-events: none;
+}
+
+// ── Email Chips ───────────────────────────────────────────────────────────────
+.ird-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.ird-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: $field-bg;
+  border: 1px solid $field-border;
+  border-radius: 999px;
+  font-size: var(--fs-body-sm);
+  color: $text-secondary;
+  font-family: $font;
+  font-weight: 500;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 992px) {
+  .ird-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .ird-page      { padding: 16px 0; }
+  .ird-container { padding: 0 16px; }
+
+  .ird-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ird-header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .ird-section-body { padding: 16px; }
+
+  .ird-grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .ird-container { padding: 0 12px; }
+
+  .ird-header-actions {
+    gap: 8px;
+
+    .app-btn { font-size: 12px; }
+  }
+}

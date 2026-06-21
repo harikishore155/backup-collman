@@ -1,0 +1,101 @@
+@use "../../main.scss" as *;
+
+.service-preview-modal .service-preview-content {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.preview-service-container,
+.preview-charge-container,
+.service-preview-timing,
+.preview-extra-container,
+.preview-stay-container,
+.preview-venue-container,
+.preview-practitioner-container {
+
+    @include container-border-style;
+    padding: 10px 20px;
+    background: #FDFDFD;
+
+    .section-label {
+        font-weight: 500;
+    }
+
+    h6 {
+        font-weight: 500;
+    }
+
+    p {
+        color: $secondary-text-color;
+    }
+
+    .label-title {
+        font-weight: 400;
+    }
+
+
+    .label-price {
+        color: #FF8C5C;
+        ;
+    }
+
+    .service-image-preview {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+
+    .service-image-preview img {
+        height: 80px;
+        object-fit: cover;
+
+    }
+
+    .service-stay-preview {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .service-stay-preview img {
+        height: 80px;
+        object-fit: cover;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+    }
+
+
+    .amenity-item {
+        margin-bottom: 10px;
+
+        .amenity-value {
+            margin-left: 10px;
+
+        }
+    }
+
+    .amenity-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .practitioner-item {
+        margin-bottom: 10px;
+
+        .practitioner-value {
+            margin-left: 10px;
+        }
+    }
+    
+    .practitioner-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+
+}

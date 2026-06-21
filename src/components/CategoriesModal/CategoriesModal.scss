@@ -1,0 +1,103 @@
+@use "../../main.scss" as *;
+
+.categories-modal {
+    .modal-header {
+        padding: 20px 20px;
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+
+    .modal-body {
+        padding: 20px 20px;
+        // height: 400px;
+
+        .modal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            h5 {
+                margin-bottom: 0px;
+                font-weight: 500;
+            }
+        }
+
+        .category-scroll-container {
+            max-height: 350px; 
+            overflow-y: auto;
+            padding-right: 5px;
+
+            scrollbar-width: thin;
+            scrollbar-color: #cccccc transparent;
+
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #bfbfbf;
+                border-radius: 10px;
+            }
+        }
+
+
+    }
+
+    .category-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #e5e5e5;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .category-name {
+                margin-bottom: 0px;
+            }
+        }
+
+        .category-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .edit-icon {
+                color: #4397FF;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 0px 7px;
+                border-radius: 5px;
+                transition: 0.2s ease-in-out all;
+
+                &:hover {
+                    background-color: #4397ff1a;
+                    display: inline-block;
+                }
+            }
+
+            .delete-icon {
+                color: #FF5F57;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 0px 7px;
+                border-radius: 5px;
+                transition: 0.2s ease-in-out all;
+
+                &:hover {
+                    background-color: #ff5f5726;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

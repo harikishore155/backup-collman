@@ -1,0 +1,110 @@
+@use "../../../styles/variables" as *;
+@use "sass:color";
+
+// ─── Card ──────────────────────────────────────────────────────────────────────
+.mgr-report-card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 18px 18px 0;
+  margin-bottom: $gap;
+}
+
+.mgr-report-header {
+  margin-bottom: 12px;
+}
+
+.mgr-report-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: $text-primary;
+  margin: 0;
+}
+
+.mgr-report-body {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 18px;
+}
+
+// ─── Scrollable wrapper — all sections share one horizontal scroll ──────────
+.mgr-scroll-wrapper {
+  overflow-x: auto;
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 0 0 4px; // room for scrollbar
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $bg-page;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: color.adjust(#e4e8ef, $lightness: -10%);
+    border-radius: 3px;
+  }
+}
+
+// ─── Individual section table ──────────────────────────────────────────────────
+.mgr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  white-space: nowrap;
+
+  thead tr th {
+    background: $bg-thead;
+    color: $text-secondary;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid $border;
+    border-right: 1px solid $border;
+    border-top: 1px solid $border;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  .col-label {
+    text-align: left !important;
+    min-width: 150px;
+    font-weight: 500;
+    position: sticky;
+    left: 0;
+    background: $bg-thead;
+    z-index: 2;
+    border-right: 1px solid $border !important;
+  }
+
+  tbody tr {
+    border-top: 1px solid $border;
+
+    &:hover {
+      background: $bg-page;
+    }
+
+    td {
+      padding: 9px 10px;
+      text-align: center;
+      color: $text-primary;
+      border-right: 1px solid $border;
+      min-width: 100px;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      &.col-label {
+        background: $bg-card;
+        font-weight: 400;
+        z-index: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@use "../../main.scss" as *;
+
+.questions-container {
+    // max-width: 450px;
+    min-width: 450px;
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .label-name {
+        color: $secondary-text-color;
+        margin-bottom: 8px;
+    }
+
+    .required {
+        color: #ff0000;
+        margin-left: 5px;
+    }
+}

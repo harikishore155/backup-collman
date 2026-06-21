@@ -1,0 +1,147 @@
+@use "../../main.scss" as *;
+
+.practitioner-preview-modal {
+    .practitioner-preview-content {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .practitioner-preview-card {
+        @include container-border-style;
+        padding: 10px 20px;
+        background: #FDFDFD;
+
+        .section-label {
+            font-weight: 500;
+        }
+
+        h6 {
+            font-weight: 400;
+              
+        }
+
+
+        .preview-value {
+            color: $secondary-text-color;
+          
+        }
+
+        .preview-label {
+            color: $secondary-text-color;
+            font-weight: 400;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+
+            .service-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                min-width: 120px;
+                
+
+                .service-icon {
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .service-text {
+                    color: $secondary-text-color;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .certificate-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .certificate-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 14px;
+                border: 1px solid #e6e6e6;
+                border-radius: 12px;
+                background: #fff;
+                margin-bottom: 10px;
+
+                .certificate-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-right: 10px;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                    }
+
+                    span {
+                        font-size: 15px;
+                        color: #111;
+                    }
+                }
+            }
+        }
+
+        .available-preview {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: #f4f6f8;
+            color: $secondary-text-color;
+            font-size: 14px;
+            width: fit-content;
+
+            .available-icon {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            .available-text {
+                font-size: 15px;
+                color: #111;
+            }
+        }
+
+
+        .practitioner-profile-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+    }
+}

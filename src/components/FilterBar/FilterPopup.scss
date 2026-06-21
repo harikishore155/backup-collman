@@ -1,0 +1,788 @@
+// @use "../../main.scss" as *;
+
+// // ── Popover container ──────────────────────────────────────────────────────────
+// .filter-popover-paper {
+//   overflow: visible;
+
+//   @media (max-width: 600px) {
+//     overflow: auto !important;
+//     left: 16px !important;
+//     right: 16px !important;
+//   }
+// }
+
+// .filter-popover-content {
+//   padding: 20px 22px 20px;
+
+//   @media (max-width: 600px) {
+//     padding: 14px 16px 16px;
+//   }
+
+//   .MuiPickersInputBase-root::before,
+//   .MuiPickersInputBase-root::after,
+//   .MuiPickersInput-root::before,
+//   .MuiPickersInput-root::after {
+//     display: none !important;
+//     border-bottom: none !important;
+//   }
+// }
+
+// .filter-popover-title {
+//   margin: 0 0 18px;
+//   font-size: 15px;
+//   font-weight: 600;
+//   color: $text-color;
+//   letter-spacing: 0.01em;
+// }
+
+// .filter-popover-actions {
+//   margin-top: 4px;
+//   padding-top: 16px;
+//   border-top: 1px solid $border-color;
+//   display: flex;
+//   justify-content: flex-end;
+//   gap: 8px;
+
+//   @media (max-width: 600px) {
+//     padding-top: 12px;
+
+//     button {
+//       flex: 1;
+//     }
+//   }
+// }
+
+// .filter-popover-container {
+//   width: 100%;
+// }
+
+// // ── Filter bar wrapper ─────────────────────────────────────────────────────────
+// .filter-bar {
+//   position: relative;
+
+//   .filter-badge {
+//     position: absolute;
+//     top: -6px;
+//     right: -6px;
+//     background-color: $danger-color;
+//     color: #ffffff;
+//     font-size: 10px;
+//     font-weight: 700;
+//     min-width: 18px;
+//     height: 18px;
+//     border-radius: 9px;
+//     padding: 0 4px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     border: 2px solid #ffffff;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//     z-index: 2;
+//   }
+// }
+
+// // ── Filter item wrapper ────────────────────────────────────────────────────────
+// .filter-item {
+//   margin-bottom: 14px;
+//   position: relative;
+
+//   &:last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .filter-item-heading {
+//     margin: 0 0 7px;
+//     font-size: 12px;
+//     font-weight: 600;
+//     text-transform: uppercase;
+//     letter-spacing: 0.06em;
+//     color: $secondary-text-color;
+//   }
+
+//   .filter-input {
+//     @include form-input-style;
+//   }
+// }
+
+// // ── fp-select: the whole dropdown widget ──────────────────────────────────────
+// .fp-select {
+//   position: relative;
+//   width: 100%;
+// }
+
+// // ── Trigger button ─────────────────────────────────────────────────────────────
+// .fp-trigger {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 8px;
+//   padding: 9px 12px;
+//   background: $bg-card;
+//   border: 1.5px solid $border-color;
+//   border-radius: 8px;
+//   cursor: pointer;
+//   transition: border-color 0.15s, box-shadow 0.15s;
+//   text-align: left;
+
+//   &:hover {
+//     border-color: $primary-color;
+//   }
+
+//   &:disabled {
+//     opacity: 0.6;
+//     cursor: not-allowed;
+//   }
+
+//   .fp-select--open & {
+//     border-color: $primary-color;
+//     box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+//   }
+
+//   &--active {
+//     border-color: $primary-color;
+//     background: rgba($primary-color, 0.03);
+//   }
+
+//   &__label {
+//     flex: 1;
+//     min-width: 0;
+//     font-size: 13.5px;
+//     color: $text-color;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+
+//     // placeholder state
+//     .fp-trigger:not(.fp-trigger--active) & {
+//       color: $secondary-text-color;
+//     }
+//   }
+
+//   &__icons {
+//     display: flex;
+//     align-items: center;
+//     gap: 5px;
+//     flex-shrink: 0;
+//   }
+// }
+
+// .fp-badge {
+//   background: $primary-color;
+//   color: #fff;
+//   font-size: 10px;
+//   font-weight: 700;
+//   min-width: 18px;
+//   height: 18px;
+//   border-radius: 9px;
+//   padding: 0 4px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .fp-clear-icon {
+//   color: $secondary-text-color;
+//   cursor: pointer;
+//   transition: color 0.15s;
+
+//   &:hover {
+//     color: $danger-color;
+//   }
+// }
+
+// .fp-chevron {
+//   color: $secondary-text-color;
+//   transition: transform 0.2s;
+
+//   &--up {
+//     transform: rotate(180deg);
+//   }
+// }
+
+// // ── Dropdown panel ─────────────────────────────────────────────────────────────
+// .fp-dropdown {
+//   position: absolute;
+//   top: calc(100% + 4px);
+//   left: 0;
+//   right: 0;
+//   z-index: 9999;
+//   background: $bg-card;
+//   border: 1.5px solid $border-color;
+//   border-radius: 10px;
+//   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+//   overflow: hidden;
+//   animation: fp-fade-in 0.12s ease;
+
+//   @keyframes fp-fade-in {
+//     from {
+//       opacity: 0;
+//       transform: translateY(-4px);
+//     }
+//     to {
+//       opacity: 1;
+//       transform: translateY(0);
+//     }
+//   }
+// }
+
+// // ── Search bar inside dropdown ─────────────────────────────────────────────────
+// .fp-search {
+//   display: flex;
+//   align-items: center;
+//   gap: 7px;
+//   padding: 8px 12px;
+//   border-bottom: 1px solid $border-color;
+//   background: $bg-card;
+
+//   &__icon {
+//     color: $secondary-text-color;
+//     flex-shrink: 0;
+//   }
+
+//   &__input {
+//     flex: 1;
+//     border: none;
+//     outline: none;
+//     background: transparent;
+//     font-size: 13px;
+//     color: $text-color;
+
+//     &::placeholder {
+//       color: $secondary-text-color;
+//     }
+//   }
+
+//   &__clear {
+//     color: $secondary-text-color;
+//     cursor: pointer;
+//     flex-shrink: 0;
+
+//     &:hover {
+//       color: $danger-color;
+//     }
+//   }
+// }
+
+// // ── Options list ───────────────────────────────────────────────────────────────
+// .fp-options {
+//   max-height: 220px;
+//   overflow-y: auto;
+//   padding: 6px 0;
+
+//   &__empty {
+//     padding: 12px 14px;
+//     font-size: 13px;
+//     color: $secondary-text-color;
+//     text-align: center;
+//   }
+
+//   &::-webkit-scrollbar {
+//     width: 4px;
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     background: transparent;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background: $border-color;
+//     border-radius: 4px;
+//   }
+// }
+
+// // ── Individual option row ──────────────────────────────────────────────────────
+// .fp-option {
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   padding: 9px 14px;
+//   cursor: pointer;
+//   transition: background 0.1s;
+//   user-select: none;
+
+//   &:hover {
+//     background: rgba($primary-color, 0.05);
+//   }
+
+//   &--checked {
+//     background: rgba($primary-color, 0.06);
+//   }
+
+//   &__checkbox {
+//     display: none; // hidden — we use custom box
+//   }
+
+//   &__box {
+//     width: 17px;
+//     height: 17px;
+//     flex-shrink: 0;
+//     border: 1.8px solid $border-color;
+//     border-radius: 4px;
+//     background: $bg-card;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     transition: background 0.15s, border-color 0.15s;
+
+//     .fp-option--checked & {
+//       background: $primary-color;
+//       border-color: $primary-color;
+//       color: #fff;
+//     }
+
+//     svg {
+//       width: 10px;
+//       height: 10px;
+//     }
+//   }
+
+//   &__label {
+//     font-size: 13.5px;
+//     color: $text-color;
+//     line-height: 1.4;
+//     flex: 1;
+//     min-width: 0;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//   }
+// }
+
+// // ── Dropdown footer (select all / clear) ──────────────────────────────────────
+// .fp-dropdown__footer {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 7px 14px;
+//   border-top: 1px solid $border-color;
+//   background: rgba($border-color, 0.2);
+// }
+
+// .fp-footer-btn {
+//   background: none;
+//   border: none;
+//   padding: 2px 0;
+//   font-size: 12px;
+//   font-weight: 600;
+//   cursor: pointer;
+//   color: $primary-color;
+//   transition: opacity 0.15s;
+
+//   &:hover {
+//     opacity: 0.75;
+//   }
+
+//   &--danger {
+//     color: $danger-color;
+//   }
+// }
+
+
+@use "../../main.scss" as *;
+
+// ── Backdrop blur overlay ──────────────────────────────────────────────────────
+.filter-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1299; // just below MUI Popover (1300)
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: backdrop-in 0.2s ease;
+
+  @keyframes backdrop-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
+
+// ── Popover paper ──────────────────────────────────────────────────────────────
+.filter-popover-paper {
+  overflow: hidden !important; // paper itself doesn't scroll — inner content does
+  z-index: 1300 !important;
+}
+
+// ── Popover header (fixed, not scrollable) ─────────────────────────────────────
+.filter-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid $border-color;
+  flex-shrink: 0; // never shrink — always visible
+}
+
+.filter-popover-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: $text-color;
+  letter-spacing: 0.01em;
+}
+
+.filter-popover-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: $secondary-text-color;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba($danger-color, 0.08);
+    color: $danger-color;
+  }
+}
+
+// ── Scrollable content body ────────────────────────────────────────────────────
+.filter-popover-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 20px 4px;
+  overscroll-behavior: contain;
+
+  // thin custom scrollbar
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $border-color;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 14px 16px 4px;
+  }
+
+  .MuiPickersInputBase-root::before,
+  .MuiPickersInputBase-root::after,
+  .MuiPickersInput-root::before,
+  .MuiPickersInput-root::after {
+    display: none !important;
+    border-bottom: none !important;
+  }
+}
+
+// ── Fixed footer actions ───────────────────────────────────────────────────────
+.filter-popover-actions {
+  flex-shrink: 0; // always visible at bottom
+  padding: 14px 20px;
+  border-top: 1px solid $border-color;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  background: $bg-card;
+
+  @media (max-width: 600px) {
+    padding: 12px 16px;
+
+    button {
+      flex: 1;
+    }
+  }
+}
+
+.filter-popover-container {
+  width: 100%;
+}
+
+// ── Filter bar wrapper ─────────────────────────────────────────────────────────
+.filter-bar {
+  position: relative;
+
+  .filter-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: $danger-color;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+}
+
+// ── Filter item wrapper ────────────────────────────────────────────────────────
+.filter-item {
+  margin-bottom: 14px;
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .filter-item-heading {
+    margin: 0 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $secondary-text-color;
+  }
+
+  .filter-input {
+    @include form-input-style;
+  }
+}
+
+// ── fp-select: the whole dropdown widget ──────────────────────────────────────
+.fp-select {
+  position: relative;
+  width: 100%;
+}
+
+// ── Trigger button ─────────────────────────────────────────────────────────────
+.fp-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 12px;
+  background: $bg-card;
+  border: 1.5px solid $border-color;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  text-align: left;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .fp-select--open & {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+
+  &--active {
+    border-color: $primary-color;
+    background: rgba($primary-color, 0.03);
+  }
+
+  &__label {
+    flex: 1;
+    min-width: 0;
+    font-size: 13.5px;
+    color: $text-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .fp-trigger:not(.fp-trigger--active) & {
+      color: $secondary-text-color;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+}
+
+.fp-badge {
+  background: $primary-color;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fp-clear-icon {
+  color: $secondary-text-color;
+  cursor: pointer;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $danger-color;
+  }
+}
+
+.fp-chevron {
+  color: $secondary-text-color;
+  transition: transform 0.2s;
+
+  &--up {
+    transform: rotate(180deg);
+  }
+}
+
+// ── Dropdown panel ─────────────────────────────────────────────────────────────
+.fp-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: $bg-card;
+  border: 1.5px solid $border-color;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  animation: fp-fade-in 0.12s ease;
+
+  @keyframes fp-fade-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+}
+
+// ── Search bar inside dropdown ─────────────────────────────────────────────────
+.fp-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border-bottom: 1px solid $border-color;
+  background: $bg-card;
+
+  &__icon {
+    color: $secondary-text-color;
+    flex-shrink: 0;
+  }
+
+  &__input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    color: $text-color;
+
+    &::placeholder {
+      color: $secondary-text-color;
+    }
+  }
+
+  &__clear {
+    color: $secondary-text-color;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover {
+      color: $danger-color;
+    }
+  }
+}
+
+// ── Options list ───────────────────────────────────────────────────────────────
+.fp-options {
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 6px 0;
+
+  &__empty {
+    padding: 12px 14px;
+    font-size: 13px;
+    color: $secondary-text-color;
+    text-align: center;
+  }
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: $border-color; border-radius: 4px; }
+}
+
+// ── Individual option row ──────────────────────────────────────────────────────
+.fp-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background 0.1s;
+  user-select: none;
+
+  &:hover { background: rgba($primary-color, 0.05); }
+  &--checked { background: rgba($primary-color, 0.06); }
+
+  &__checkbox { display: none; }
+
+  &__box {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    border: 1.8px solid $border-color;
+    border-radius: 4px;
+    background: $bg-card;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+
+    .fp-option--checked & {
+      background: $primary-color;
+      border-color: $primary-color;
+      color: #fff;
+    }
+
+    svg { width: 10px; height: 10px; }
+  }
+
+  &__label {
+    font-size: 13.5px;
+    color: $text-color;
+    line-height: 1.4;
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// ── Dropdown footer ────────────────────────────────────────────────────────────
+.fp-dropdown__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 14px;
+  border-top: 1px solid $border-color;
+  background: rgba($border-color, 0.2);
+}
+
+.fp-footer-btn {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: $primary-color;
+  transition: opacity 0.15s;
+
+  &:hover { opacity: 0.75; }
+  &--danger { color: $danger-color; }
+}

@@ -1,0 +1,37 @@
+@use "./main.scss" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+}
+
+// Modal zoom effect
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-zoom {
+  animation: zoomIn 0.25s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.offcanvas {
+  max-width: 500px;
+}
+
+.btn-close {
+  font-size: 12px;
+  background-color: transparent;
+  border-radius: 50% !important;
+  box-shadow: 0 3px 10px #00000089;
+}

@@ -1,0 +1,286 @@
+@use "../../main.scss" as *;
+
+.modal.case-mass-update-modal {
+  z-index: 99999 !important;
+  padding: 12px !important;
+}
+
+.case-mass-update-backdrop.modal-backdrop {
+  z-index: 99998 !important;
+  background-color: #0f172a;
+  opacity: 0.58 !important;
+}
+
+// SelectInput menus use an MUI portal on <body>, so they must sit above the modal.
+.case-mass-update-modal ~ .MuiModal-root,
+.case-mass-update-modal ~ * .MuiPopover-root,
+.MuiPopover-root.MuiMenu-root {
+  z-index: 100000 !important;
+}
+
+.case-mass-update-modal {
+  .modal-dialog {
+    width: min(920px, calc(100vw - 24px));
+    max-width: 920px;
+    margin: 12px auto;
+    min-height: calc(100dvh - 24px);
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-height: calc(100dvh - 24px);
+    border: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+  }
+
+  .modal-header,
+  .modal-footer {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    border-color: $border-color;
+    padding: 18px 22px;
+    background: #ffffff;
+  }
+
+  .modal-header {
+    .modal-title {
+      color: $text-primary;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .btn-close {
+      flex-shrink: 0;
+    }
+  }
+
+  .modal-body {
+    min-height: 0;
+    padding: 22px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .modal-footer {
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .mass-update-scope {
+    margin-bottom: 16px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    background: rgba($primary-color, 0.08);
+    color: $primary-color;
+    font-size: var(--fs-body);
+    font-weight: 500;
+  }
+
+  .mass-update-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .mass-update-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+
+    .select-input-wrapper,
+    .select-type-input {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  .mass-update-enable {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $text-primary;
+    font-size: var(--fs-body);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .mass-update-text-input {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    color: $text-color;
+    font-family: $font-primary;
+    outline: none;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &:disabled {
+      background: $bg-page;
+      cursor: not-allowed;
+    }
+  }
+
+  .mass-update-warning {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border: 1px solid rgba(217, 119, 6, 0.25);
+    border-radius: 7px;
+    background: rgba(251, 191, 36, 0.12);
+    color: #b45309;
+    font-weight: 600;
+  }
+
+  .mass-update-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 12px;
+      border: 1px solid $border-color;
+      border-radius: 7px;
+      background: $bg-page;
+    }
+
+    span {
+      color: $text-secondary;
+      font-size: var(--fs-body-sm);
+    }
+
+    strong {
+      color: $text-primary;
+      font-size: var(--fs-h5);
+    }
+  }
+
+  .requested-updates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+
+    span {
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: rgba($primary-color, 0.08);
+      color: $text-color;
+      font-size: var(--fs-body-sm);
+    }
+  }
+
+  .mass-update-confirmation {
+    min-width: 0;
+
+    h6 {
+      margin-bottom: 10px;
+      color: $text-primary;
+      font-weight: 600;
+    }
+
+    .data-table-wrap {
+      max-width: 100%;
+      padding: 12px;
+      overflow-x: auto;
+    }
+
+    .data-table {
+      min-width: 560px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modal-dialog {
+      width: min(100%, calc(100vw - 16px));
+      min-height: calc(100dvh - 16px);
+      margin: 8px auto;
+      align-items: stretch;
+    }
+
+    .modal-content {
+      max-height: calc(100dvh - 16px);
+      border-radius: 10px;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: 16px;
+    }
+
+    .mass-update-fields,
+    .mass-update-summary {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modal-dialog {
+      width: 100%;
+      min-height: 100dvh;
+      margin: 0;
+    }
+
+    .modal-content {
+      min-height: 100dvh;
+      max-height: 100dvh;
+      border-radius: 0;
+    }
+
+    .modal-header {
+      padding: 14px 16px;
+
+      .modal-title {
+        font-size: 16px;
+      }
+    }
+
+    .modal-body {
+      padding: 14px;
+    }
+
+    .modal-footer {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding: 12px 14px;
+
+      .app-btn {
+        width: 100%;
+        min-width: 0;
+        padding-inline: 8px;
+        white-space: normal;
+      }
+    }
+
+    .mass-update-scope,
+    .mass-update-warning {
+      font-size: 13px;
+    }
+
+    .mass-update-fields {
+      gap: 14px;
+    }
+
+    .requested-updates {
+      flex-direction: column;
+
+      span {
+        overflow-wrap: anywhere;
+      }
+    }
+  }
+}

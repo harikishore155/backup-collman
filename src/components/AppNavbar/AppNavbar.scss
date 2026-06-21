@@ -1,0 +1,710 @@
+@use "../../main.scss" as *;
+
+// mui style overrides for dropdown menu
+.navbar-dropdown-menu {
+  .MuiPopover-paper {
+    width: 200px;
+  }
+
+  .MuiMenu-list {
+    padding: 0px;
+    margin: 5px 5px;
+  }
+
+  .MuiPaper-root {
+    min-width: 220px;
+    border: 1px solid #dfe5ed;
+    box-shadow: none;
+  }
+
+  .MuiMenuItem-root.navbar-child-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 100%;
+    transition: background 0.2s ease;
+    font-family: $font-primary;
+    font-size: var(--fs-h6);
+  }
+
+  .MuiMenuItem-root.navbar-child-icon svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+
+    path {
+      stroke: $text-color;
+    }
+  }
+
+  .MuiMenuItem-root.navbar-child-icon:hover,
+  .MuiMenuItem-root.navbar-child-icon.Mui-selected {
+    background: #eff4f9;
+    color: $primary-color;
+
+    svg path {
+      stroke: $primary-color;
+    }
+  }
+}
+
+.navbar-profile-menu {
+  .MuiPopover-paper {
+    min-width: 260px;
+    margin-top: 8px;
+    border: 1px solid #dfe5ed;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .MuiList-root {
+    padding: 0;
+  }
+
+  .navbar-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .navbar-profile-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba($primary-color, 0.12);
+    color: $primary-color;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .navbar-profile-details {
+    min-width: 0;
+  }
+
+  .navbar-profile-name {
+    margin: 0;
+    font-size: var(--fs-h6);
+    font-weight: 600;
+    color: $text-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navbar-profile-email,
+  .navbar-profile-role {
+    margin: 4px 0 0;
+    font-family: $font-primary;
+    font-size: 12px;
+    color: $secondary-text-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navbar-profile-role {
+    text-transform: capitalize;
+  }
+
+  .navbar-profile-divider {
+    margin: 0;
+  }
+
+  .MuiMenuItem-root.navbar-profile-action,
+  .MuiMenuItem-root.navbar-profile-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    margin: 6px;
+    border-radius: 8px;
+    font-size: var(--fs-h6);
+    color: $danger-color;
+    transition: background 0.2s ease;
+    width: 95%;
+
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background: rgba($danger-color, 0.08);
+    }
+  }
+
+  .MuiMenuItem-root.navbar-profile-action {
+    color: $text-color;
+
+    &:hover {
+      background: #eff4f9;
+      color: $primary-color;
+    }
+  }
+}
+
+.navbar-notification-menu {
+  .MuiPopover-paper {
+    width: min(430px, calc(100vw - 24px));
+    max-height: min(650px, calc(100vh - 90px));
+    margin-top: 10px;
+    border: 1px solid $border-color;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+    font-family: $font-primary;
+    overflow: hidden;
+  }
+
+  .MuiList-root {
+    padding: 0;
+    max-height: inherit;
+    overflow-y: auto;
+  }
+
+  .navbar-notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px 16px;
+    background: linear-gradient(135deg, #f7fbff 0%, #ffffff 75%);
+    color: $text-color;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    strong {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+    }
+
+    span {
+      color: $secondary-text-color;
+      font-size: var(--fs-caption);
+    }
+
+    button {
+      border: 1px solid rgba($primary-color, 0.18);
+      border-radius: 7px;
+      background: #ffffff;
+      color: $primary-color;
+      cursor: pointer;
+      font-family: $font-primary;
+      font-size: var(--fs-caption);
+      padding: 7px 10px;
+      white-space: nowrap;
+
+      &:hover {
+        background: rgba($primary-color, 0.06);
+      }
+    }
+  }
+
+  .navbar-notification-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 170px;
+    color: $secondary-text-color;
+    font-family: $font-primary;
+    font-size: var(--fs-body-sm);
+  }
+
+  .navbar-notification-retry {
+    border: 1px solid rgba($danger-color, 0.25);
+    border-radius: 7px;
+    background: #ffffff;
+    color: $danger-color;
+    cursor: pointer;
+    font-family: $font-primary;
+    font-size: var(--fs-body-sm);
+    padding: 8px 12px;
+  }
+
+  .navbar-notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    white-space: normal;
+    border-bottom: 1px solid #eef1f5;
+    cursor: pointer;
+    transition: background 0.18s ease;
+
+    &.is-unread {
+      background: linear-gradient(90deg, rgba($primary-color, 0.07), #ffffff 85%);
+      box-shadow: inset 3px 0 0 $primary-color;
+    }
+
+    &.is-approved .navbar-notification-icon {
+      background: rgba(#15803d, 0.1);
+      color: #15803d;
+    }
+
+    &.is-rejected .navbar-notification-icon {
+      background: rgba($danger-color, 0.1);
+      color: $danger-color;
+    }
+
+    &:hover {
+      background: #f8fafc;
+    }
+  }
+
+  .navbar-notification-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+      font-size: 17px;
+    }
+  }
+
+  .navbar-notification-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+    font-family: $font-primary;
+
+    > strong {
+      color: $text-color;
+      font-size: var(--fs-body);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .navbar-notification-message {
+      color: $secondary-text-color;
+      font-size: var(--fs-body-sm);
+      line-height: 1.55;
+    }
+  }
+
+  .navbar-notification-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    small {
+      color: $text-muted;
+      font-size: var(--fs-caption);
+      white-space: nowrap;
+    }
+  }
+
+  .navbar-notification-module {
+    display: inline-flex;
+    width: fit-content;
+    padding: 3px 7px;
+    border-radius: 5px;
+    background: rgba($primary-color, 0.08);
+    color: $primary-color;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+  }
+
+  .navbar-notification-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+
+    .notification-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-width: 88px;
+      border-radius: 7px;
+      padding: 7px 12px;
+      font-family: $font-primary;
+      font-size: var(--fs-caption);
+      font-weight: 500;
+      cursor: pointer;
+      transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-1px);
+      }
+
+      &:disabled {
+        cursor: wait;
+        opacity: 0.55;
+      }
+
+      svg {
+        font-size: 14px;
+      }
+
+      &.approve {
+        border: 1px solid $primary-color;
+        background: $primary-color;
+        color: #ffffff;
+      }
+
+      &.reject {
+        border: 1px solid rgba($danger-color, 0.35);
+        background: #ffffff;
+        color: $danger-color;
+
+        &:hover:not(:disabled) {
+          background: rgba($danger-color, 0.06);
+        }
+      }
+    }
+  }
+
+  .navbar-notification-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 3px;
+
+    > span {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: #f7f9fc;
+      margin: 0;
+
+      small {
+        color: $text-muted;
+        font-size: 9px;
+        text-transform: uppercase;
+      }
+
+      strong {
+        overflow: hidden;
+        color: $text-color;
+        font-size: var(--fs-caption);
+        font-weight: 500;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .navbar-notification-load-more {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+
+    button {
+      border: 1px solid rgba($primary-color, 0.2);
+      border-radius: 7px;
+      background: #ffffff;
+      color: $primary-color;
+      cursor: pointer;
+      font-family: $font-primary;
+      font-size: var(--fs-caption);
+      padding: 8px 16px;
+
+      &:disabled {
+        cursor: wait;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .navbar-notification-action-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    margin-top: 4px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: var(--fs-caption);
+    font-weight: 500;
+
+    svg {
+      font-size: 13px;
+    }
+
+    &.approved {
+      border: 1px solid rgba(#15803d, 0.18);
+      background: rgba(#15803d, 0.08);
+      color: #15803d;
+    }
+
+    &.rejected {
+      border: 1px solid rgba($danger-color, 0.2);
+      background: rgba($danger-color, 0.08);
+      color: $danger-color;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar-notification-details {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// app navbar styles
+.app-navbar {
+  .login-logo {
+    width: 90px;
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+    background-color: $primary-color;
+    padding: 10px 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .navbar-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+      min-width: 0;
+      padding: 10px 15px;
+      border-radius: 7px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #004c88;
+      }
+
+      .navbar-nav-title {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: var(--fs-h6);
+      }
+
+      &.is-active {
+        background: #004c88;
+      }
+    }
+
+    .navbar-nav-dropdown-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: inherit;
+      width: auto;
+      text-align: left;
+      padding: 10px 10px;
+      font: inherit;
+    }
+
+    .navbar-nav-dropdown-icon {
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.2s ease;
+      transform: rotate(0deg);
+    }
+
+    .navbar-nav-dropdown-btn.is-open .navbar-nav-dropdown-icon {
+      transform: rotate(180deg);
+    }
+
+    .navbar-primary-nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .navbar-more-btn {
+      color: #ffffff;
+      min-width: 40px;
+      min-height: 40px;
+      padding: 0;
+      border-radius: 8px;
+      transition: background 0.15s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .navbar-nav-icon {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      font-size: var(--fs-h6);
+
+      svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+    }
+  }
+
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-left: auto;
+
+    svg {
+      font-size: 16px;
+    }
+
+    span {
+      font-size: 14px;
+      margin-left: 3px;
+    }
+
+    .app-navbar-search {
+      svg {
+        color: #b3cce6;
+      }
+
+      .search-input {
+        background-color: #2578b7;
+        border: 1px solid #dfe5ed;
+        color: #ffffff;
+
+        &:hover {
+          border: 1px solid #dfe5ed;
+        }
+
+        &::placeholder {
+          color: #b3cce6;
+        }
+      }
+    }
+
+    .navbar-icon-btn {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid rgb(255 255 255 / 15%);
+      background: transparent;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      flex-shrink: 0;
+
+      svg {
+        font-size: 18px;
+      }
+
+      &:hover {
+        background: #ffffff25;
+      }
+
+      &.is-open {
+        background: #ffffff25;
+      }
+    }
+
+    .navbar-notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -6px;
+      min-width: 17px;
+      height: 17px;
+      padding: 0 4px;
+      border: 2px solid $primary-color;
+      border-radius: 10px;
+      background: $danger-color;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 600;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .navbar-user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgb(255 255 255 / 35%);
+      background: rgb(255 255 255 / 15%);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      flex-shrink: 0;
+      transition: background 0.15s ease;
+
+      &:hover,
+      &.is-open {
+        background: rgb(255 255 255 / 25%);
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .navbar-global-search {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-container {
+      flex-wrap: wrap;
+    }
+
+    .navbar-hamburger-btn {
+      display: grid;
+    }
+
+    .navbar-primary-nav {
+      display: none;
+    }
+
+    .navbar-nav-link {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+  }
+}

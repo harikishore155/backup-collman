@@ -1,0 +1,40 @@
+@use "../../../../main.scss" as *;
+
+.clients-page-container {
+  .clients-table {
+    .clients-name-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      strong {
+        color: $text-color;
+        font-weight: 500;
+      }
+
+      .clients-code {
+        font-size: 12px;
+        color: $secondary-text-color;
+      }
+    }
+
+    .clients-status-badge {
+      padding: 6px 12px;
+      border-radius: 7px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 500;
+
+      &.active {
+        background: rgba(52, 211, 153, 0.16);
+        color: #16a34a;
+      }
+
+      &.inactive {
+        background: rgba(248, 113, 113, 0.16);
+        color: #dc2626;
+      }
+    }
+  }
+}

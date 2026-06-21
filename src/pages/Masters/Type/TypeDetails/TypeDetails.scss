@@ -1,0 +1,116 @@
+@use "../../../../main.scss" as *;
+
+.type-details-page {
+  .type-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .card-container {
+    background: $bg-card;
+    border: 1px solid $border;
+    border-radius: $radius;
+    padding: 20px;
+    box-shadow: $shadow;
+  }
+
+  .type-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+
+      .type-info {
+        flex: 1;
+        min-width: 0;
+
+        .type-title-row h5 {
+          margin: 0;
+        }
+
+        h5 {
+          color: $text-primary;
+          font-weight: 500;
+          word-break: break-word;
+        }
+
+        .type-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          margin-top: 10px;
+
+          span {
+            background-color: #f9f9f9;
+            color: $secondary-text-color;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            word-break: break-all;
+            min-width: 0;
+            flex: 1 1 auto;
+
+            @media (max-width: 480px) {
+              width: 100%;
+              flex: 1 1 100%;
+            }
+          }
+        }
+      }
+
+      > :last-child {
+        flex-shrink: 0;
+      }
+    }
+
+    .header-status {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-weight: 500;
+        font-size: 0.875rem;
+        color: $text-secondary;
+      }
+
+      .status-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+    }
+  }
+
+  .type-details-content {
+    .tab-panel-container {
+      background: $bg-card;
+      border: 1px solid $border;
+      border-radius: $radius;
+      padding: 20px;
+      box-shadow: $shadow;
+      min-height: 400px;
+
+      .description-tab-content {
+        p {
+          color: $text-secondary;
+          line-height: 1.6;
+          font-size: 15px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-container {
+      padding: 14px;
+    }
+  }
+}

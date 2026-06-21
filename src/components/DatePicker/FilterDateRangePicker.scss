@@ -1,0 +1,41 @@
+@use "../../main.scss" as *;
+
+.date-range {
+    display: flex;
+    gap: 20px;
+
+    .custom-date-picker {
+        @include form-input-style;
+        padding: 5px 5px 5px 15px;
+        margin-bottom: 15px;
+    }
+
+    .MuiFormLabel-root {
+        font-family: $font-primary;
+    }
+
+    .MuiPickersInputBase-root,
+    .MuiPickersInput-root {
+        font-size: 14px;
+
+        &::before,
+        &::after {
+            display: none !important;
+            border-bottom: none !important;
+        }
+    }
+
+    .MuiPickersSectionList-section {
+        span {
+            font-family: $font-primary;
+        }
+    }
+
+    .MuiPickersSectionList-root {
+        padding-bottom: 0px;
+    }
+
+    .MuiSvgIcon-root {
+        font-size: 18px;
+    }
+}

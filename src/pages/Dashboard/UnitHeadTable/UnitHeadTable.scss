@@ -1,0 +1,128 @@
+@use "../../../styles/variables" as *;
+@use "sass:color";
+
+// ─── Card ──────────────────────────────────────────────────────────────────────
+.unit-head-card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 18px 18px 18px;
+  margin-bottom: $gap;
+}
+
+.unit-head-header {
+  margin-bottom: 12px;
+}
+
+.unit-head-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: $text-primary;
+  margin: 0;
+}
+
+.unit-head-body {
+  margin-top: 14px;
+}
+
+// ─── Scrollable wrapper ────────────────────────────────────────────────────────
+.unit-table-scroll {
+  overflow-x: auto;
+  border: 1px solid $border;
+  border-radius: 6px;
+
+  // Custom thin scrollbar
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $bg-page;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: color.adjust(#e4e8ef, $lightness: -10%);
+    border-radius: 3px;
+  }
+}
+
+// ─── Table ─────────────────────────────────────────────────────────────────────
+.unit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  white-space: nowrap;
+
+  // ── Group header (POS / RES% / NR+RB%) ──────────────────────────────────────
+  .unit-thead-group th {
+    background: $bg-thead;
+    color: $text-secondary;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid $border;
+    border-right: 1px solid $border;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    // STATE cell stretches two rows via rowSpan
+    &.col-state {
+      text-align: left;
+      min-width: 160px;
+      font-weight: 500;
+      border-right: 1px solid $border;
+    }
+  }
+
+  // ── Month sub-header ─────────────────────────────────────────────────────────
+  .unit-thead-months th {
+    background: $bg-thead;
+    color: $text-secondary;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 7px 10px;
+    text-align: center;
+    border-bottom: 1px solid $border;
+    border-right: 1px solid $border;
+    min-width: 52px;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  // ── Body rows ────────────────────────────────────────────────────────────────
+  tbody tr {
+    border-top: 1px solid $border;
+
+    &:hover {
+      background: $bg-page;
+    }
+  }
+
+  tbody td {
+    padding: 9px 10px;
+    text-align: center;
+    color: $text-primary;
+    border-right: 1px solid $border;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    // STATE column
+    &.col-state {
+      text-align: left;
+      font-weight: 500;
+      padding: 9px 12px;
+      min-width: 160px;
+      color: $text-primary;
+      position: sticky;
+      left: 0;
+      background: $bg-card;
+      z-index: 1;
+      border-right: 1px solid $border;
+    }
+  }
+}

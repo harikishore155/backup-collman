@@ -1,0 +1,174 @@
+@use "../../main.scss" as *;
+
+// ── Overlay (full screen backdrop) ────────────────────────────────────────────
+.crm-overlay {
+  position: fixed;
+  inset: 0;                                       // top/right/bottom/left: 0
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+// ── Modal box ─────────────────────────────────────────────────────────────────
+.crm-modal-box {
+  width: 100%;
+  max-width: 560px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.06);
+  font-family: $font-primary;
+  display: flex;
+  flex-direction: column;
+  animation: crm-modal-in 0.2s ease;
+}
+
+@keyframes crm-modal-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.crm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 16px;
+}
+
+.crm-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: $text-color;
+  margin: 0;
+  font-family: $font;
+}
+
+.crm-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid $border-color;
+  background: #ffffff;
+  border-radius: 50%;
+  color: $secondary-text-color;
+  font-size: 13px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: #f1f5f9;
+    color: $text-color;
+  }
+}
+
+// ── Body ──────────────────────────────────────────────────────────────────────
+.crm-body {
+  padding: 0 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.crm-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+// ── Report type section ───────────────────────────────────────────────────────
+.crm-report-type-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.crm-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: $secondary-text-color;
+  letter-spacing: 0.07em;
+  margin: 0;
+  font-family: $font-primary;
+}
+
+.crm-report-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.crm-report-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+  border: 1.5px solid $border-color;
+  border-radius: $radius;
+  background: #ffffff;
+  cursor: pointer;
+  font-family: $font-primary;
+  text-align: left;
+  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+
+  &:hover {
+    border-color: $primary-color;
+    background: #f6f9fd;
+  }
+}
+
+.crm-report-card-active {
+  border-color: $primary-color;
+  background: #eef5fc;
+  box-shadow: 0 0 0 3px rgba(0, 96, 169, 0.07);
+}
+
+.crm-report-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.crm-report-card-active .crm-report-icon {
+  filter: invert(22%) sepia(90%) saturate(700%) hue-rotate(190deg) brightness(90%);
+}
+
+.crm-report-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-color;
+  font-family: $font-primary;
+}
+
+.crm-report-card-active .crm-report-card-title {
+  color: $primary-color;
+}
+
+.crm-report-card-desc {
+  font-size: 12px;
+  color: $secondary-text-color;
+  line-height: 1.5;
+  font-family: $font-primary;
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.crm-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px 22px;
+  border-top: 1px solid $border-color;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .crm-report-type-grid  { grid-template-columns: 1fr; }
+  .crm-modal-box         { border-radius: 12px; }
+}

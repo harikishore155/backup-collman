@@ -1,0 +1,170 @@
+@use "../../../main.scss" as *;
+
+.report-home-page {
+  .report-container {
+    @media (max-width: 768px) {
+      padding: 0 16px;
+      gap: 12px;
+    }
+    @media (max-width: 480px) {
+      padding: 0 12px;
+    }
+  }
+
+  .report-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    .report-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .report-title {
+        font-size: var(--fs-h4);
+        font-weight: 500;
+        color: $text-color;
+        margin: 0;
+        line-height: 1.2;
+        font-family: $font-primary;
+      }
+
+      .report-subtitle {
+        font-size: var(--fs-body);
+        color: $secondary-text-color;
+        margin: 4px 0 0;
+        font-family: $font-primary;
+      }
+    }
+  }
+
+  .report-table-card {
+    width: 100%;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    overflow: visible;
+
+    .report-table-wrap {
+      width: 100%;
+      overflow: visible;
+      padding: 16px 20px 20px;
+      box-sizing: border-box;
+
+      @media (max-width: 768px) {
+        padding: 12px 14px 14px;
+      }
+      @media (max-width: 480px) {
+        padding: 8px 10px 10px;
+      }
+
+      .report-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        table-layout: fixed;
+        border: 1px solid $border-color;
+        border-radius: $radius;
+        overflow: visible;
+
+        // Corner rounding
+        thead tr:first-child {
+          th:first-child {
+            border-top-left-radius: $radius;
+          }
+          th:last-child {
+            border-top-right-radius: $radius;
+          }
+        }
+
+        tbody tr:last-child {
+          td:first-child {
+            border-bottom-left-radius: $radius;
+          }
+          td:last-child {
+            border-bottom-right-radius: $radius;
+          }
+        }
+
+        thead th {
+          @include table-heading-style;
+
+          &.col-sno {
+            width: 60px;
+            text-align: center;
+          }
+
+          &.col-name {
+            text-align: left;
+            padding-left: 16px;
+          }
+
+          &.col-view {
+            width: 80px;
+            text-align: right;
+            padding-right: 28px;
+          }
+        }
+
+        tbody td {
+          @include table-data-style;
+
+          &.col-sno {
+            width: 60px;
+            text-align: center;
+            color: $secondary-text-color;
+          }
+
+          &.col-name {
+            text-align: left;
+            padding-left: 16px;
+          }
+
+          &.col-view {
+            width: 80px;
+            text-align: right;
+            padding-right: 24px;
+          }
+
+          &.col-empty {
+            text-align: center;
+            color: $secondary-text-color;
+            padding: 32px 0;
+            font-size: var(--fs-body);
+            font-family: $font-primary;
+            border-bottom: none;
+          }
+        }
+
+        tbody tr {
+          &:last-child td {
+            border-bottom: none;
+          }
+        }
+
+        .report-file-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+
+          .file-icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+          }
+
+          .file-name {
+            font-size: var(--fs-body);
+            font-weight: 400;
+            color: $text-color;
+            font-family: $font-primary;
+          }
+        }
+      }
+    }
+  }
+}

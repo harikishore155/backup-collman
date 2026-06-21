@@ -1,0 +1,495 @@
+@use "../../../main.scss" as *;
+
+.kb-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.kb-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.kb-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kb-header-right {
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.kb-title {
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: $text-color;
+  margin: 0;
+  line-height: 1.2;
+  font-family: $font;
+}
+
+.kb-subtitle {
+  font-size: var(--fs-body);
+  color: $secondary-text-color;
+  margin: 4px 0 0;
+  font-family: $font-primary;
+}
+
+// ── Filter Box ────────────────────────────────────────────────────────────────
+.kb-filter-box {
+  background-color: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  overflow: hidden;
+
+}
+
+.kb-filter-top {
+  padding: 10px 16px;
+  border-bottom: 1px solid $border-color;
+}
+
+.kb-search-input {
+  width: 100%;
+  max-width: 320px;
+  height: 34px;
+  padding: 0 12px;
+  font-size: var(--fs-body);
+  font-family: $font-primary;
+  color: $text-color;
+  background-color: $bg-page;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  outline: none;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $secondary-text-color;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+// ── Quick Filter Bar ──────────────────────────────────────────────────────────
+.kb-quick-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+}
+
+.kb-quick-filter-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: $secondary-text-color;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  font-family: $font-primary;
+}
+
+.kb-quick-filter-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kb-quick-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  background-color: $bg-page;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  font-size: var(--fs-body);
+  font-family: $font-primary;
+  color: $text-color;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+}
+
+.kb-quick-chip-active {
+  background-color: rgba($primary-color, 0.08);
+  border-color: $primary-color;
+  color: $primary-color;
+  font-weight: 500;
+}
+
+.kb-count-badge {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 500;
+  color: $secondary-text-color;
+  font-family: $font-primary;
+}
+
+// ── Card Container ────────────────────────────────────────────────────────────
+.kb-card-container {
+  background-color: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  padding: 20px;
+  min-height: 180px;
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────────
+.kb-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+.kb-card {
+  background-color: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.18s ease;
+
+  &:hover {
+    box-shadow: $shadow;
+  }
+}
+
+.kb-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.kb-card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background-color: rgba($primary-color, 0.08);
+  border-radius: $radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kb-card-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.kb-card-name {
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: $text-color;
+  font-family: $font-primary;
+  margin: 0;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+// ── Type badge + date ──────────────────────────────────────────────────────────
+.kb-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.kb-card-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-family: $font-primary;
+  text-transform: uppercase;
+
+  &--doc {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  &--video {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  &--audio {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  &--excel {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+}
+
+.kb-card-meta-date {
+  font-size: 10px;
+  color: $secondary-text-color;
+  font-family: $font-primary;
+  white-space: nowrap;
+}
+
+// ── Note ──────────────────────────────────────────────────────────────────────
+.kb-card-note {
+  font-size: var(--fs-body-sm);
+  color: $secondary-text-color;
+  font-family: $font-primary;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+// ── Footer rows ───────────────────────────────────────────────────────────────
+.kb-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding-top: 4px;
+  border-top: 1px solid $border-color;
+
+  &:first-of-type {
+    margin-top: 2px;
+  }
+}
+
+.kb-card-footer-label {
+  font-size: 10px;
+  color: $secondary-text-color;
+  font-family: $font-primary;
+  white-space: nowrap;
+}
+
+.kb-card-footer-value {
+  font-size: 10px;
+  font-weight: 500;
+  color: $text-color;
+  font-family: $font-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 65%;
+  text-align: right;
+}
+
+// ── Three-dot Menu ────────────────────────────────────────────────────────────
+.kb-card-menu {
+  position: relative;
+  display: inline-flex;
+}
+
+.kb-card-menu-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: rgba($border-color, 0.8);
+  }
+}
+
+.kb-card-menu-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 300;
+  min-width: 100px;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  animation: kb-menu-in 0.12s ease;
+}
+
+@keyframes kb-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kb-card-menu-item {
+  padding: 8px 14px;
+  font-size: var(--fs-body);
+  font-family: $font-primary;
+  color: $text-color;
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.06);
+    color: $primary-color;
+  }
+}
+
+.kb-card-menu-item-danger {
+  color: $danger-color;
+
+  &:hover {
+    background-color: rgba($danger-color, 0.06);
+    color: $danger-color;
+  }
+}
+
+// ── Skeleton ──────────────────────────────────────────────────────────────────
+.kb-card--skeleton {
+  pointer-events: none;
+  gap: 10px;
+}
+
+@keyframes kb-shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+%skeleton-base {
+  background: linear-gradient(90deg,
+      rgba($border-color, 0.5) 25%,
+      rgba($border-color, 0.2) 50%,
+      rgba($border-color, 0.5) 75%);
+  background-size: 800px 100%;
+  animation: kb-shimmer 1.4s infinite linear;
+  border-radius: 4px;
+}
+
+.kb-skeleton {
+  @extend %skeleton-base;
+
+  &--icon {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius;
+  }
+
+  &--title {
+    height: 14px;
+    width: 80%;
+  }
+
+  &--line {
+    height: 11px;
+    width: 65%;
+  }
+
+  &--line-short {
+    width: 45%;
+  }
+}
+
+// ── Empty state ───────────────────────────────────────────────────────────────
+.kb-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.kb-empty-text {
+  font-size: var(--fs-body);
+  color: $secondary-text-color;
+  font-family: $font-primary;
+  margin: 0;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 1280px) {
+  .kb-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .kb-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .kb-container {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .kb-header-right {
+    padding-top: 0;
+  }
+
+  .kb-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .kb-container {
+    padding: 0 12px;
+  }
+
+  .kb-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kb-header-right {
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .kb-header-right .app-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .kb-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

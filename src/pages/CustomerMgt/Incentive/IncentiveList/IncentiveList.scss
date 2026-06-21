@@ -1,0 +1,193 @@
+@use "../../../../main.scss" as *;
+
+.incentive-page-container {
+
+  .incentive-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    .incentive-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 10px;
+      flex-shrink: 0;
+
+      .incentive-export-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 18px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        background: #ffffff;
+        color: #6b7280;
+        font-size: 14px;
+        height: 43px;
+        font-weight: 500;
+        line-height: 1;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+        svg {
+          font-size: 17px;
+          flex-shrink: 0;
+          color: #6b7280;
+        }
+
+        &:hover {
+          background: #f9fafb;
+          border-color: #9ca3af;
+          color: #374151;
+
+          svg {
+            color: #374151;
+          }
+        }
+
+        &:active {
+          background: #f3f4f6;
+        }
+
+        &:focus-visible {
+          outline: 2px solid #6b7280;
+          outline-offset: 2px;
+        }
+      }
+
+      .app-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        svg {
+          font-size: 18px;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  .incentive-table {
+    min-width: 2600px;
+
+    th,
+    td {
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .incentive-field-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border-radius: 7px;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.1;
+      white-space: nowrap;
+
+      &.emp-code {
+        background: #eff6ff;
+        color: #2563eb;
+      }
+
+      &.bank {
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      &.month {
+        background: #fef3c7;
+        color: #b45309;
+      }
+
+      &.collection {
+        background: #ecfdf5;
+        color: #047857;
+      }
+
+      &.net-pay {
+        background: #dcfce7;
+        color: #15803d;
+      }
+    }
+
+    .incentive-employee-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      strong {
+        color: #2563eb;
+        font-weight: 500;
+      }
+
+      .employee-id {
+        font-size: 12px;
+        color: #7c3aed;
+        font-weight: 500;
+      }
+    }
+
+    .status-badge {
+      padding: 6px 12px;
+      border-radius: 7px;
+      color: #f48080;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+
+      &.status-paid,
+      &.status-success,
+      &.status-completed,
+      &.status-calculated {
+        background: #40c915;
+        color: white;
+      }
+
+      &.status-pending,
+      &.status-processing {
+        background: #f6a609;
+      }
+
+      &.status-failed,
+      &.status-error,
+      &.status-missing {
+        background: #ff1f2d;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .incentive-page-header {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .incentive-header-actions {
+        width: 100%;
+        padding-top: 0;
+        flex-wrap: wrap;
+
+        .incentive-export-btn {
+          flex: 1;
+          justify-content: center;
+        }
+
+        .app-btn {
+          flex: 1;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+@use "../../main.scss" as *;
+
+.upload-modal {
+  .modal-dialog {
+    max-width: 480px;
+  }
+
+  .modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .modal-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid $border-color;
+
+    .modal-title {
+      font-family: $font-primary;
+      font-size: 18px;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    .btn-close {
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 24px;
+
+    .form-field {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .field-label {
+        display: block;
+        font-family: $font-primary;
+        font-size: 14px;
+        font-weight: 500;
+        color: $text-color;
+        margin-bottom: 8px;
+      }
+
+      .select-input-wrapper {
+        margin-bottom: 0;
+
+        .select-type-input {
+          width: 100%;
+          min-width: unset;
+        }
+      }
+
+      // ── Campaign loading state ──────────────────────────────
+      .campaigns-loading {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 15px;
+        background-color: #f9fafb;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        font-family: $font-primary;
+        font-size: 14px;
+        color: $text-color;
+
+        .loading-icon {
+          font-size: 16px;
+          flex-shrink: 0;
+          color: $primary-color;
+        }
+
+        .spin {
+          animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
+        }
+      }
+
+      // ── Drag-and-drop zone ──────────────────────────────────
+      .file-dropzone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        min-height: 120px;
+        padding: 24px 16px;
+        background-color: #f9fafb;
+        border: 1.5px dashed $border-color;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+
+        &:hover,
+        &.dragging {
+          border-color: $primary-color;
+          background-color: rgba($primary-color, 0.04);
+        }
+
+        .dropzone-icon {
+          font-size: 28px;
+          color: $primary-color;
+          opacity: 0.75;
+        }
+
+        .dropzone-primary {
+          margin: 0;
+          font-family: $font-primary;
+          font-size: 14px;
+          font-weight: 500;
+          color: $text-color;
+        }
+
+        .dropzone-secondary {
+          margin: 0;
+          font-family: $font-primary;
+          font-size: 12px;
+          color: $text-color;
+        }
+      }
+
+      // ── Selected file row ───────────────────────────────────
+      .file-selected {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 11px 14px;
+        background-color: #f9fafb;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+
+        .file-icon {
+          flex-shrink: 0;
+          font-size: 18px;
+          color: $primary-color;
+        }
+
+        .file-name {
+          flex: 1;
+          font-family: $font-primary;
+          font-size: 14px;
+          color: $text-color;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .file-remove {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          padding: 0;
+          background: none;
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          color: $text-color;
+          transition: color 0.15s ease, background-color 0.15s ease;
+
+          &:hover:not(:disabled) {
+            color: #e53935;
+            background-color: rgba(#e53935, 0.08);
+          }
+
+          &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+          }
+
+          svg {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 16px 24px 20px;
+    border-top: 1px solid $border-color;
+    gap: 10px;
+    justify-content: flex-end;
+
+    .app-btn {
+      min-width: 100px;
+    }
+  }
+}

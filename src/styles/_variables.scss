@@ -1,0 +1,43 @@
+$font-primary: "Axiforma", sans-serif;
+
+// $primary-color: #0060a9;
+$primary-color: #0060a9;
+$background-color: #f9fafb;
+
+$text-color: #1a1a1a;
+$secondary-text-color: #64748b;
+$tertiary-color: #ff8c5c;
+
+$border-color: #dfe5ed;
+
+$danger-color: #ff5f57;
+
+// ---Colors ---
+$blue-primary: #0060a9;
+$blue-value: #0060a9;
+$bg-page: #f5f7fa;
+$bg-card: #ffffff;
+$bg-thead: #f9fbfd;
+$bg-total: #f9fbfd;
+$border: #e4e8ef;
+$text-primary: #222831;
+$text-secondary: #6b7280;
+$text-muted: #9ca3af;
+
+// ─── Elevation ────────────────────────────────────────────────────────────────
+$shadow:
+  0 1px 3px rgba(0, 0, 0, 0.06),
+  0 1px 2px rgba(0, 0, 0, 0.04);
+
+// ─── Layout ───────────────────────────────────────────────────────────────────
+$radius: 8px;
+$gap: 12px;
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+$font:
+  "Axiforma",
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;

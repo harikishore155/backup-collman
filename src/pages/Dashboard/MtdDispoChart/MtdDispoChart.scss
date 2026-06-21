@@ -1,0 +1,60 @@
+@use "../../../main.scss" as *;
+
+// ─── Card wrapper ──────────────────────────────────────────────────────────────
+.mtd-dispo-card {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 16px 18px 12px;
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+.mtd-dispo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.mtd-dispo-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-primary;
+}
+
+// ─── Chart container ──────────────────────────────────────────────────────────
+.mtd-dispo-body {
+  position: relative;
+
+  // Style recharts SVG tick labels to match app typography
+  text {
+    font-family: $font;
+    font-size: 11px;
+    fill: $text-secondary;
+  }
+}
+
+// ─── Tooltip ──────────────────────────────────────────────────────────────────
+.dispo-tooltip {
+  background: $bg-card;
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  &-label {
+    color: $text-secondary;
+    font-family: $font;
+  }
+
+  &-value {
+    color: $text-primary;
+    font-weight: 500;
+    font-family: $font;
+  }
+}
